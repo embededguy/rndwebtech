@@ -33,7 +33,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
+      <head>
         <Script src="/js/vendors/jquery-3.6.1.min.js" strategy="beforeInteractive"/>
         
         <Script src="/js/vendors/bootstrap.bundle.min.js" strategy="beforeInteractive"/>
@@ -50,7 +50,7 @@ export default function RootLayout({ children }) {
         
         <Script src="/js/main.js"/>
 
-      </Head>
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} dark-theme vertical dark`}>
         {children}
       </body>

@@ -33,7 +33,7 @@ export default function Header({ activePage }) {
       <div className="container">
         <nav className="menu-navbar">
           <div className="header-logo">
-            <Link className="logo-link" href="#">
+            <Link className="logo-link" href="/">
               <img
                 className="logo-img light-logo"
                 loading="lazy"
