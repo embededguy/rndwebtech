@@ -36,10 +36,10 @@ export default function Page() {
             <nav aria-label="breadcrumb ">
               <ul className="breadcrumb wow fadeInUp" data-wow-delay=".6s">
                 <li className="breadcrumb-item">
-                  <Link className="breadcrumb-link" href="#0">
+                  <a className="breadcrumb-link" href="/">
                     <i className="bi bi-house icon " />
                     home
-                  </Link>
+                  </a>
                 </li>
                 <li className="breadcrumb-item active">portfolio</li>
               </ul>
@@ -91,7 +91,7 @@ export default function Page() {
               <div className="row ">
                 <div className="col-12  col-md-6  col-lg-4  portfolio-item mobile ">
                   <div className="item   ">
-                    <Link
+                    <a
                       className="portfolio-img-link"
                       href=""
                     >
@@ -101,7 +101,7 @@ export default function Page() {
                         src="assets/images/portfolio/1.jpg"
                         alt="portfolio item photo"
                       />
-                    </Link>
+                    </a>
                     <div className="item-info ">
                       <h3 className="item-title">mobile apps</h3>
                       <i className="bi bi-arrow-right icon " />
@@ -110,7 +110,7 @@ export default function Page() {
                 </div>
                 <div className="col-12  col-md-6  col-lg-4  portfolio-item web  ">
                   <div className="item   ">
-                    <Link
+                    <a
                       className="portfolio-img-link"
                       href=""
                     >
@@ -120,7 +120,7 @@ export default function Page() {
                         src="assets/images/portfolio/2.jpg"
                         alt="portfolio item photo"
                       />
-                    </Link>
+                    </a>
                     <div className="item-info ">
                       <h3 className="item-title">cloud</h3>
                       <i className="bi bi-arrow-right icon " />
@@ -129,7 +129,7 @@ export default function Page() {
                 </div>
                 <div className="col-12  col-md-6  col-lg-4  portfolio-item data ">
                   <div className="item   ">
-                    <Link
+                    <a
                       className="portfolio-img-link"
                       href=""
                     >
@@ -139,7 +139,7 @@ export default function Page() {
                         src="assets/images/portfolio/3.jpg"
                         alt="portfolio item photo"
                       />
-                    </Link>
+                    </a>
                     <div className="item-info ">
                       <h3 className="item-title">data analaysis</h3>
                       <i className="bi bi-arrow-right icon " />
@@ -148,7 +148,7 @@ export default function Page() {
                 </div>
                 <div className="col-12  col-md-6  col-lg-4  portfolio-item mobile ">
                   <div className="item   ">
-                    <Link
+                    <a
                       className="portfolio-img-link"
                       href="l"
                     >
@@ -158,7 +158,7 @@ export default function Page() {
                         src="assets/images/portfolio/4.jpg"
                         alt="portfolio item photo"
                       />
-                    </Link>
+                    </a>
                     <div className="item-info ">
                       <h3 className="item-title">hosting</h3>
                       <i className="bi bi-arrow-right icon " />
@@ -167,7 +167,7 @@ export default function Page() {
                 </div>
                 <div className="col-12  col-md-6  col-lg-4  portfolio-item hosting ">
                   <div className="item   ">
-                    <Link
+                    <a
                       className="portfolio-img-link"
                       href=""
                     >
@@ -177,7 +177,7 @@ export default function Page() {
                         src="assets/images/portfolio/5.jpg"
                         alt="portfolio item photo"
                       />
-                    </Link>
+                    </a>
                     <div className="item-info ">
                       <h3 className="item-title">SEO</h3>
                       <i className="bi bi-arrow-right icon " />
@@ -186,7 +186,7 @@ export default function Page() {
                 </div>
                 <div className="col-12  col-md-6  col-lg-4  portfolio-item mobile">
                   <div className="item   ">
-                    <Link
+                    <a
                       className="portfolio-img-link"
                       href=""
                     >
@@ -196,7 +196,7 @@ export default function Page() {
                         src="assets/images/portfolio/6.jpg"
                         alt="portfolio item photo"
                       />
-                    </Link>
+                    </a>
                     <div className="item-info ">
                       <h3 className="item-title">other category</h3>
                       <i className="bi bi-arrow-right icon " />
@@ -376,86 +376,86 @@ export default function Page() {
         */}
                 <div className="swiper-slide">
                   <div className="client-logo  ">
-                    <Link href="#0">
+                    <a href="#0">
                       <img
                         className="img-fluid logo "
                         loading="lazy"
                         src="assets/images/clients-logos/1-white.png"
                         alt=" "
                       />
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div className="swiper-slide">
                   <div className="client-logo ">
-                    <Link href="#0">
+                    <a href="#0">
                       <img
                         className="img-fluid logo "
                         loading="lazy"
                         src="assets/images/clients-logos/2-white.png"
                         alt=" "
                       />
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div className="swiper-slide">
                   <div className="client-logo ">
-                    <Link href="#0">
+                    <a href="#0">
                       <img
                         className="img-fluid logo "
                         loading="lazy"
                         src="assets/images/clients-logos/3-white.png"
                         alt=" "
                       />
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div className="swiper-slide">
                   <div className="client-logo ">
-                    <Link href="#0">
+                    <a href="#0">
                       <img
                         className="img-fluid logo "
                         loading="lazy"
                         src="assets/images/clients-logos/4-white.png"
                         alt=" "
                       />
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div className="swiper-slide">
                   <div className="client-logo ">
-                    <Link href="#0">
+                    <a href="#0">
                       <img
                         className="img-fluid logo "
                         loading="lazy"
                         src="assets/images/clients-logos/5-white.png"
                         alt=" "
                       />
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div className="swiper-slide">
                   <div className="client-logo ">
-                    <Link href="#0">
+                    <a href="#0">
                       <img
                         className="img-fluid logo "
                         loading="lazy"
                         src="assets/images/clients-logos/6-white.png"
                         alt=" "
                       />
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div className="swiper-slide">
                   <div className="client-logo ">
-                    <Link href="#0">
+                    <a href="#0">
                       <img
                         className="img-fluid logo "
                         loading="lazy"
                         src="assets/images/clients-logos/7-white.png"
                         alt=" "
                       />
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -495,9 +495,9 @@ export default function Page() {
             </div>
             {/*Start .see-more-area*/}
             <div className=" see-more-area wow fadeInUp" data-wow-delay="0.8s">
-              <Link className=" btn-solid cta-link" href="/contact">
+              <a className=" btn-solid cta-link" href="/contact">
                 contact us
-              </Link>
+              </a>
             </div>
             {/*End Of .see-more-area        */}
           </div>

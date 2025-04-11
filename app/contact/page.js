@@ -37,10 +37,10 @@ export default function Page() {
             <nav aria-label="breadcrumb ">
               <ul className="breadcrumb wow fadeInUp" data-wow-delay=".6s">
                 <li className="breadcrumb-item">
-                  <Link className="breadcrumb-link" href="#0">
+                  <a className="breadcrumb-link" href="#0">
                     <i className="bi bi-house icon " />
                     home
-                  </Link>
+                  </a>
                 </li>
                 <li className="breadcrumb-item active">contact us</li>
               </ul>
@@ -77,21 +77,21 @@ export default function Page() {
                         <i className="flaticon-email icon" />
                         <div className="card-content">
                           <h6 className="content-title">email:</h6>
-                          <Link
+                          <a
                             className="email link"
                             href="mailto:yourname@example.com"
                           >
                             info@example.com
-                          </Link>
+                          </a>
                         </div>
                       </div>
                       <div className="location-card  ">
                         <i className="flaticon-phone-call icon" />
                         <div className="card-content">
                           <h6 className="content-title">phone:</h6>
-                          <Link className="tel link" href="tel:0123456789">
+                          <a className="tel link" href="tel:0123456789">
                             +29876543210
-                          </Link>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -110,21 +110,21 @@ export default function Page() {
                         <i className="flaticon-email icon" />
                         <div className="card-content">
                           <h6 className="content-title">email:</h6>
-                          <Link
+                          <a
                             className="email link"
                             href="mailto:yourname@example.com"
                           >
                             info@example.com
-                          </Link>
+                          </a>
                         </div>
                       </div>
                       <div className="location-card  ">
                         <i className="flaticon-phone-call icon" />
                         <div className="card-content">
                           <h6 className="content-title">phone:</h6>
-                          <Link className="tel link" href="tel:0123456789">
+                          <a className="tel link" href="tel:0123456789">
                             +969876543210
-                          </Link>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -143,21 +143,21 @@ export default function Page() {
                         <i className="flaticon-email icon" />
                         <div className="card-content">
                           <h6 className="content-title">email:</h6>
-                          <Link
+                          <a
                             className="email link"
                             href="mailto:yourname@example.com"
                           >
                             info@example.com
-                          </Link>
+                          </a>
                         </div>
                       </div>
                       <div className="location-card  ">
                         <i className="flaticon-phone-call icon" />
                         <div className="card-content">
                           <h6 className="content-title">phone:</h6>
-                          <Link className="tel link" href="tel:0123456789">
+                          <a className="tel link" href="tel:0123456789">
                             +459876543210
-                          </Link>
+                          </a>
                         </div>
                       </div>
                     </div>

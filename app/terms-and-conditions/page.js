@@ -36,10 +36,10 @@ export default function Page() {
             <nav aria-label="breadcrumb ">
               <ul className="breadcrumb wow fadeInUp" data-wow-delay=".6s">
                 <li className="breadcrumb-item">
-                  <Link className="breadcrumb-link" href="#0">
+                  <a className="breadcrumb-link" href="/">
                     <i className="bi bi-house icon " />
                     home
-                  </Link>
+                  </a>
                 </li>
                 <li className="breadcrumb-item active">Terms & Conditions</li>
               </ul>

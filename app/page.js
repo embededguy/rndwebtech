@@ -39,40 +39,40 @@ export default function Home() {
                   <div className="sc-wrapper dir-row sc-flat">
                     <ul className="sc-list">
                       <li className="sc-item " title="Facebook">
-                        <Link
+                        <a
                           className="sc-link"
                           href="#0"
                           title="social media icon"
                         >
                           <i className="fab fa-facebook-f sc-icon" />
-                        </Link>
+                        </a>
                       </li>
                       <li className="sc-item " title="youtube">
-                        <Link
+                        <a
                           className="sc-link"
                           href="#0"
                           title="social media icon"
                         >
                           <i className="fab fa-youtube sc-icon" />
-                        </Link>
+                        </a>
                       </li>
                       <li className="sc-item " title="instagram">
-                        <Link
+                        <a
                           className="sc-link"
                           href="#0"
                           title="social media icon"
                         >
                           <i className="fab fa-instagram sc-icon" />
-                        </Link>
+                        </a>
                       </li>
                       <li className="sc-item " title="X">
-                        <Link
+                        <a
                           className="sc-link"
                           href="#0"
                           title="social media icon"
                         >
                           <i className="fab fa-x-twitter sc-icon" />
-                        </Link>
+                        </a>
                       </li>
                     </ul>
                   </div>
@@ -115,14 +115,14 @@ export default function Home() {
                   </div>
                   <div className="col-12">
                     <div className="cta-links-area ">
-                      <Link
+                      <a
                         className="btn-outline cta-link cta-link-primary"
                         href="#0"
                       >
                         Start Now
-                      </Link>
+                      </a>
                       <div className="play-btn-row-dir ">
-                        <Link
+                        <a
                           className="video-link"
                           href="https://www.youtube.com/watch?v=QI4_dGvZ5yE&ab_channel=JUtah"
                           role="button"
@@ -135,7 +135,7 @@ export default function Home() {
                               <i className="fas fa-play icon" />
                             </div>
                           </div>
-                        </Link>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -187,9 +187,9 @@ export default function Home() {
               </p>
             </div>
             <div className=" cta-area   wow fadeInUp" data-wow-delay=".8s">
-              <Link className="cta-btn btn-solid    " href="/services">
+              <a className="cta-btn btn-solid    " href="/services">
                 see all services <i className="bi bi-arrow-right icon " />
-              </Link>
+              </a>
             </div>
           </div>
           <div className="row gx-4 gy-4 services-row ">
@@ -212,10 +212,10 @@ export default function Home() {
                     technologies and best practices.
                   </p>
                 </div>
-                <Link className="read-more" href="/services/web-development">
+                <a className="read-more" href="/services/web-development">
                   read more
                   <i className="bi bi-arrow-right icon " />
-                </Link>
+                </a>
               </div>
               {/* End First service box   */}
             </div>
@@ -238,10 +238,10 @@ export default function Home() {
                     and grow your online store.
                   </p>
                 </div>
-                <Link className="read-more" href="/services/ecommerce-development">
+                <a className="read-more" href="/services/ecommerce-development">
                   read more
                   <i className="bi bi-arrow-right icon " />
-                </Link>
+                </a>
               </div>
               {/* End Second service box*/}
             </div>
@@ -264,10 +264,10 @@ export default function Home() {
                     complete control.
                   </p>
                 </div>
-                <Link className="read-more" href="/services/cms-development">
+                <a className="read-more" href="/services/cms-development">
                   read more
                   <i className="bi bi-arrow-right icon " />
-                </Link>
+                </a>
               </div>
               {/* End Third service box*/}
             </div>
@@ -290,10 +290,10 @@ export default function Home() {
                     running smoothly.
                   </p>
                 </div>
-                <Link className="read-more" href="/services/website-maintenance">
+                <a className="read-more" href="/services/website-maintenance">
                   read more
                   <i className="bi bi-arrow-right icon " />
-                </Link>
+                </a>
               </div>
               {/* End fourth service box   */}
             </div>
@@ -316,10 +316,10 @@ export default function Home() {
                     and drive more traffic.
                   </p>
                 </div>
-                <Link className="read-more" href="/services/seo-services">
+                <a className="read-more" href="/services/seo-services">
                   read more
                   <i className="bi bi-arrow-right icon " />
-                </Link>
+                </a>
               </div>
               {/* End 5th service box*/}
             </div>
@@ -342,10 +342,10 @@ export default function Home() {
                     business growth.
                   </p>
                 </div>
-                <Link className="read-more" href="/services/branding-design">
+                <a className="read-more" href="/services/branding-design">
                   read more
                   <i className="bi bi-arrow-right icon " />
-                </Link>
+                </a>
               </div>
               {/* End 6th service box*/}
             </div>
@@ -439,9 +439,9 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="cta-area">
-                    <Link className=" btn-solid reveal-start" href="/contact">
+                    <a className=" btn-solid reveal-start" href="/contact">
                       Get in touch
-                    </Link>
+                    </a>
                     <div className="signature ">
                       {/*<div className="signature-img" />*/}
                       {/*<div className="signature-name">CEO &amp; Founder </div>*/}
@@ -555,9 +555,9 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="cta-area ">
-                    <Link className=" btn-solid " href="/contact">
+                    <a className=" btn-solid " href="/contact">
                       get in toutch
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -641,9 +641,9 @@ export default function Home() {
               </h2>
             </div>
             <div className=" cta-area   wow fadeInUp" data-wow-delay=".8s">
-              <Link className="cta-btn btn-solid    " href="/portfolio">
+              <a className="cta-btn btn-solid    " href="/portfolio">
                 see more <i className="bi bi-arrow-right icon " />
-              </Link>
+              </a>
             </div>
           </div>
           <div className="portfolio-wrapper  ">
@@ -672,7 +672,7 @@ export default function Home() {
               <div className="row ">
                 <div className="col-12  col-md-6  col-lg-4  portfolio-item mobile ">
                   <div className="item   ">
-                    <Link
+                    <a
                       className="portfolio-img-link"
                       href=""
                     >
@@ -682,7 +682,7 @@ export default function Home() {
                         src="assets/images/portfolio/1.jpg"
                         alt="portfolio item photo"
                       />
-                    </Link>
+                    </a>
                     <div className="item-info ">
                       <h3 className="item-title">mobile apps</h3>
                       <i className="bi bi-arrow-right icon " />
@@ -691,7 +691,7 @@ export default function Home() {
                 </div>
                 <div className="col-12  col-md-6  col-lg-4  portfolio-item web  ">
                   <div className="item   ">
-                    <Link
+                    <a
                       className="portfolio-img-link"
                       href=""
                     >
@@ -701,7 +701,7 @@ export default function Home() {
                         src="assets/images/portfolio/2.jpg"
                         alt="portfolio item photo"
                       />
-                    </Link>
+                    </a>
                     <div className="item-info ">
                       <h3 className="item-title">cloud</h3>
                       <i className="bi bi-arrow-right icon " />
@@ -710,7 +710,7 @@ export default function Home() {
                 </div>
                 <div className="col-12  col-md-6  col-lg-4  portfolio-item data ">
                   <div className="item   ">
-                    <Link
+                    <a
                       className="portfolio-img-link"
                       href=""
                     >
@@ -720,7 +720,7 @@ export default function Home() {
                         src="assets/images/portfolio/3.jpg"
                         alt="portfolio item photo"
                       />
-                    </Link>
+                    </a>
                     <div className="item-info ">
                       <h3 className="item-title">data analaysis</h3>
                       <i className="bi bi-arrow-right icon " />
@@ -729,7 +729,7 @@ export default function Home() {
                 </div>
                 <div className="col-12  col-md-6  col-lg-4  portfolio-item mobile ">
                   <div className="item   ">
-                    <Link
+                    <a
                       className="portfolio-img-link"
                       href=""
                     >
@@ -739,7 +739,7 @@ export default function Home() {
                         src="assets/images/portfolio/4.jpg"
                         alt="portfolio item photo"
                       />
-                    </Link>
+                    </a>
                     <div className="item-info ">
                       <h3 className="item-title">hosting</h3>
                       <i className="bi bi-arrow-right icon " />
@@ -748,7 +748,7 @@ export default function Home() {
                 </div>
                 <div className="col-12  col-md-6  col-lg-4  portfolio-item hosting ">
                   <div className="item   ">
-                    <Link
+                    <a
                       className="portfolio-img-link"
                       href=""
                     >
@@ -758,7 +758,7 @@ export default function Home() {
                         src="assets/images/portfolio/5.jpg"
                         alt="portfolio item photo"
                       />
-                    </Link>
+                    </a>
                     <div className="item-info ">
                       <h3 className="item-title">SEO</h3>
                       <i className="bi bi-arrow-right icon " />
@@ -767,7 +767,7 @@ export default function Home() {
                 </div>
                 <div className="col-12  col-md-6  col-lg-4  portfolio-item mobile">
                   <div className="item   ">
-                    <Link
+                    <a
                       className="portfolio-img-link"
                       href=""
                     >
@@ -777,7 +777,7 @@ export default function Home() {
                         src="assets/images/portfolio/6.jpg"
                         alt="portfolio item photo"
                       />
-                    </Link>
+                    </a>
                     <div className="item-info ">
                       <h3 className="item-title">other category</h3>
                       <i className="bi bi-arrow-right icon " />
@@ -818,86 +818,86 @@ export default function Home() {
         */}
                 <div className="swiper-slide">
                   <div className="client-logo  ">
-                    <Link href="#0">
+                    <a href="#0">
                       <img
                         className="img-fluid logo "
                         loading="lazy"
                         src="assets/images/clients-logos/1-white.png"
                         alt=" "
                       />
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div className="swiper-slide">
                   <div className="client-logo ">
-                    <Link href="#0">
+                    <a href="#0">
                       <img
                         className="img-fluid logo "
                         loading="lazy"
                         src="assets/images/clients-logos/2-white.png"
                         alt=" "
                       />
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div className="swiper-slide">
                   <div className="client-logo ">
-                    <Link href="#0">
+                    <a href="#0">
                       <img
                         className="img-fluid logo "
                         loading="lazy"
                         src="assets/images/clients-logos/3-white.png"
                         alt=" "
                       />
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div className="swiper-slide">
                   <div className="client-logo ">
-                    <Link href="#0">
+                    <a href="#0">
                       <img
                         className="img-fluid logo "
                         loading="lazy"
                         src="assets/images/clients-logos/4-white.png"
                         alt=" "
                       />
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div className="swiper-slide">
                   <div className="client-logo ">
-                    <Link href="#0">
+                    <a href="#0">
                       <img
                         className="img-fluid logo "
                         loading="lazy"
                         src="assets/images/clients-logos/5-white.png"
                         alt=" "
                       />
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div className="swiper-slide">
                   <div className="client-logo ">
-                    <Link href="#0">
+                    <a href="#0">
                       <img
                         className="img-fluid logo "
                         loading="lazy"
                         src="assets/images/clients-logos/6-white.png"
                         alt=" "
                       />
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div className="swiper-slide">
                   <div className="client-logo ">
-                    <Link href="#0">
+                    <a href="#0">
                       <img
                         className="img-fluid logo "
                         loading="lazy"
                         src="assets/images/clients-logos/7-white.png"
                         alt=" "
                       />
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1073,13 +1073,13 @@ export default function Home() {
               className=" cta-area  cta-area  wow fadeInUp"
               data-wow-delay=".8s"
             >
-              <Link
+              <a
                 className="cta-btn btn-solid   cta-btn btn-solid  "
                 href="/blog"
               >
                 see all posts
                 <i className="bi bi-arrow-right icon " />
-              </Link>
+              </a>
             </div>
           </div>
           <div className="row ">
@@ -1089,7 +1089,7 @@ export default function Home() {
                   <div className="col-12 col-lg-4 ">
                     <div className="post-box">
                       {" "}
-                      <Link
+                      <a
                         className="post-link"
                         href=""
                         title="How litespeed technology works to speed up your site "
@@ -1105,40 +1105,40 @@ export default function Home() {
                             <span className="day">05 </span>oct 2022{" "}
                           </span>
                         </div>
-                      </Link>
+                      </a>
                       <div className="post-summary">
                         <div className="post-info">
-                          <Link className="info post-cat" href="#">
+                          <a className="info post-cat" href="#">
                             {" "}
                             <i className="bi bi-bookmark icon" />
                             hosting
-                          </Link>
-                          <Link className="info post-author" href="#">
+                          </a>
+                          <a className="info post-author" href="#">
                             {" "}
                             <i className=" bi bi-person icon" />
                             Allan Moore
-                          </Link>
+                          </a>
                         </div>
                         <div className="post-text">
-                          <Link className="post-link" href="post-single.html">
+                          <a className="post-link" href="post-single.html">
                             <h2 className="post-title">
                               {" "}
                               How litespeed technology works to speed up your
                               site{" "}
                             </h2>
-                          </Link>
+                          </a>
                           <p className="post-excerpt">
                             Lorem ipsum dolor sit, amet consectetur adipisicing
                             elit.Iure nulla dolorem, voluptates molestiae
                           </p>
-                          <Link
+                          <a
                             className="read-more"
                             href="post-single.html"
                             title="How litespeed technology works to speed up your site "
                           >
                             read more
                             <i className="bi bi-arrow-right icon " />
-                          </Link>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -1146,7 +1146,7 @@ export default function Home() {
                   <div className="col-12 col-lg-4 ">
                     <div className="post-box">
                       {" "}
-                      <Link
+                      <a
                         className="post-link"
                         href=""
                         title="give your website a new look and feel with themes"
@@ -1162,39 +1162,39 @@ export default function Home() {
                             <span className="day">15 </span>sep 2022{" "}
                           </span>
                         </div>
-                      </Link>
+                      </a>
                       <div className="post-summary">
                         <div className="post-info">
-                          <Link className="info post-cat" href="#">
+                          <a className="info post-cat" href="#">
                             {" "}
                             <i className="bi bi-bookmark icon" />
                             web dev
-                          </Link>
-                          <Link className="info post-author" href="#">
+                          </a>
+                          <a className="info post-author" href="#">
                             {" "}
                             <i className=" bi bi-person icon" />
                             mhmd amin
-                          </Link>
+                          </a>
                         </div>
                         <div className="post-text">
-                          <Link className="post-link" href="">
+                          <a className="post-link" href="">
                             <h2 className="post-title">
                               {" "}
                               give your website a new look and feel with themes
                             </h2>
-                          </Link>
+                          </a>
                           <p className="post-excerpt">
                             Lorem ipsum dolor sit, amet consectetur adipisicing
                             elit.Iure nulla dolorem, voluptates molestiae
                           </p>
-                          <Link
+                          <a
                             className="read-more"
                             href=""
                             title="give your website a new look and feel with themes"
                           >
                             read more
                             <i className="bi bi-arrow-right icon " />
-                          </Link>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -1202,7 +1202,7 @@ export default function Home() {
                   <div className="col-12 col-lg-4 ">
                     <div className="post-box">
                       {" "}
-                      <Link
+                      <a
                         className="post-link"
                         href=""
                         title="the role of domain names in SEO world explained "
@@ -1218,39 +1218,39 @@ export default function Home() {
                             <span className="day">27 </span>aug 2022{" "}
                           </span>
                         </div>
-                      </Link>
+                      </a>
                       <div className="post-summary">
                         <div className="post-info">
-                          <Link className="info post-cat" href="#">
+                          <a className="info post-cat" href="#">
                             {" "}
                             <i className="bi bi-bookmark icon" />
                             SEO
-                          </Link>
-                          <Link className="info post-author" href="#">
+                          </a>
+                          <a className="info post-author" href="#">
                             {" "}
                             <i className=" bi bi-person icon" />
                             yusuf amin
-                          </Link>
+                          </a>
                         </div>
                         <div className="post-text">
-                          <Link className="post-link" href="post-single.html">
+                          <a className="post-link" href="post-single.html">
                             <h2 className="post-title">
                               {" "}
                               the role of domain names in SEO world explained{" "}
                             </h2>
-                          </Link>
+                          </a>
                           <p className="post-excerpt">
                             Lorem ipsum dolor sit, amet consectetur adipisicing
                             elit.Iure nulla dolorem, voluptates molestiae
                           </p>
-                          <Link
+                          <a
                             className="read-more"
                             href="post-single.html"
                             title="the role of domain names in SEO world explained "
                           >
                             read more
                             <i className="bi bi-arrow-right icon " />
-                          </Link>
+                          </a>
                         </div>
                       </div>
                     </div>
