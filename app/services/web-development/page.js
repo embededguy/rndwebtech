@@ -2,7 +2,6 @@ import Footer from "../../components/footer.js";
 import Header from "../../components/header.js";
 import Sidebar from "../components/sidebar.js";
 import Link from 'next/link'
-
 import Head from "next/head";
 
 export const metadata = {
@@ -13,6 +12,7 @@ export const metadata = {
     "RNDwebtech delivers cutting-edge web applications, CMS solutions, SEO, and branding services. Partner with experts to grow your digital presence.",
 };
 export default function Page() {
+  
   return (
     <>
       <Header activePage="services" />
@@ -105,9 +105,9 @@ export default function Page() {
       <Footer />
       {/* Start loading-screen Component*/}
       <div className="loading-screen" id="loading-screen">
-        <span className="bar top-bar" />
-        <span className="bar down-bar" />
-        <span className="progress-line" />
+        <span className="bar top-bar"> </span>
+        <span className="bar down-bar"> </span>
+        <span className="progress-line" > </span>
         <span className="loading-counter"> </span>
       </div>
       {/* End loading-screen Component*/}

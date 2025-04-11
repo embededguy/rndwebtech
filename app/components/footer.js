@@ -79,27 +79,27 @@ export default function Footer() {
                 <ul className="footer-menu ">
                   <li className="footer-menu-item">
                     <i className="bi bi-arrow-right icon " />
-                    <Link className="footer-menu-link" href="/services/web-development">
+                    <a className="footer-menu-link" href="/services/web-development">
                       Web Development
-                    </Link>
+                    </a>
                   </li>
                   <li className="footer-menu-item">
                     <i className="bi bi-arrow-right icon " />
-                    <Link className="footer-menu-link" href="/services/seo-services">
+                    <a className="footer-menu-link" href="/services/seo-services">
                       Seo Services
-                    </Link>
+                    </a>
                   </li>
                   <li className="footer-menu-item">
                     <i className="bi bi-arrow-right icon " />
-                    <Link className="footer-menu-link" href="/services/cms-development">
+                    <a className="footer-menu-link" href="/services/cms-development">
                       CMS Development
-                    </Link>
+                    </a>
                   </li>
                   <li className="footer-menu-item">
                     <i className="bi bi-arrow-right icon " />
-                    <Link className="footer-menu-link" href="/services/ecommerce-development">
+                    <a className="footer-menu-link" href="/services/ecommerce-development">
                       E Commerce Development
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -110,27 +110,27 @@ export default function Footer() {
                 <ul className="footer-menu">
                   <li className="footer-menu-item">
                     <i className="bi bi-arrow-right icon " />
-                    <Link className="footer-menu-link" href="/">
+                    <a className="footer-menu-link" href="/">
                       Home
-                    </Link>
+                    </a>
                   </li>
                   <li className="footer-menu-item">
                     <i className="bi bi-arrow-right icon " />
-                    <Link className="footer-menu-link" href="/services">
+                    <a className="footer-menu-link" href="/services">
                       Services
-                    </Link>
+                    </a>
                   </li>
                   <li className="footer-menu-item">
                     <i className="bi bi-arrow-right icon " />
-                    <Link className="footer-menu-link" href="/about">
+                    <a className="footer-menu-link" href="/about">
                       About us
-                    </Link>
+                    </a>
                   </li>
                   <li className="footer-menu-item">
                     <i className="bi bi-arrow-right icon " />
-                    <Link className="footer-menu-link" href="/contact">
+                    <a className="footer-menu-link" href="/contact">
                       Contact us
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -140,12 +140,12 @@ export default function Footer() {
               <div className="footer-col-content-wrapper">
                 <div className="contact-info-card">
                   <i className="bi bi-envelope icon" />
-                  <Link
+                  <a
                     className="text-lowercase  info"
                     href="mailto:example@support.com"
                   >
                     support@rndwebtech.com
-                  </Link>
+                  </a>
                 </div>
                 <div className="contact-info-card">
                   <i className="bi bi-geo-alt icon" />
@@ -155,49 +155,49 @@ export default function Footer() {
                 </div>
                 <div className="contact-info-card">
                   <i className="bi bi-phone icon" />
-                  <Link className="info" href="tel:+20123456789">
+                  <a className="info" href="tel:+20123456789">
                     +20123456789
-                  </Link>
+                  </a>
                 </div>
                 <div className="contact-info-card">
                   <div className="social-icons">
                     <div className="sc-wrapper dir-row sc-size-32">
                       <ul className="sc-list">
                         <li className="sc-item " title="Facebook">
-                          <Link
+                          <a
                             className="sc-link"
                             href="#0"
                             title="social media icon"
                           >
                             <i className="fab fa-facebook-f sc-icon" />
-                          </Link>
+                          </a>
                         </li>
                         <li className="sc-item " title="youtube">
-                          <Link
+                          <a
                             className="sc-link"
                             href="#0"
                             title="social media icon"
                           >
                             <i className="fab fa-youtube sc-icon" />
-                          </Link>
+                          </a>
                         </li>
                         <li className="sc-item " title="instagram">
-                          <Link
+                          <a
                             className="sc-link"
                             href="#0"
                             title="social media icon"
                           >
                             <i className="fab fa-instagram sc-icon" />
-                          </Link>
+                          </a>
                         </li>
                         <li className="sc-item " title="X">
-                          <Link
+                          <a
                             className="sc-link"
                             href="#0"
                             title="social media icon"
                           >
                             <i className="fab fa-x-twitter sc-icon" />
-                          </Link>
+                          </a>
                         </li>
 
                       </ul>
@@ -215,19 +215,19 @@ export default function Footer() {
               <div className="col-12 col-md-6 d-flex justify-content-start">
                 <p className="creadits">
                   © 2024 Created by {" "}
-                  <Link className="link" href="https://rndwebtech.com">
+                  <a className="link" href="https://rndwebtech.com">
                     RNDwebtech
-                  </Link>
+                  </a>
                 </p>
               </div>
               <div className="col-12 col-md-6 d-flex justify-content-end">
                 <div className="terms-links">
-                  <Link href="/terms-and-conditions">Terms & Conditions </Link>|{" "}
-                  <Link
+                  <a href="/terms-and-conditions">Terms & Conditions </a>|{" "}
+                  <a
                     href="/privacy-policy"
                                    >
                     Privacy Policy.
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

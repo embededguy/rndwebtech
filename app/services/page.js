@@ -1,3 +1,4 @@
+
 import Footer from "../components/footer.js";
 import Header from "../components/header.js";
 import Head from "next/head";
@@ -27,7 +28,7 @@ export default function Page() {
             backgroundImage: "url('/assets/images/hero/inner-page-hero.jpg')",
           }}
         ></div>
-        <div className="overlay-color" data-bg-opacity=".75" />
+        <div className="overlay-color" data-bg-opacity=".75" ></div>
         <div className="container">
           <div className="hero-text-area centerd">
             <h1 className="hero-title  wow fadeInUp" data-wow-delay=".2s">
@@ -36,10 +37,10 @@ export default function Page() {
             <nav aria-label="breadcrumb ">
               <ul className="breadcrumb wow fadeInUp" data-wow-delay=".6s">
                 <li className="breadcrumb-item">
-                  <Link className="breadcrumb-link" href="#0">
+                  <a className="breadcrumb-link" href="#0">
                     <i className="bi bi-house icon " />
                     home
-                  </Link>
+                  </a>
                 </li>
                 <li className="breadcrumb-item active">services</li>
               </ul>
@@ -93,10 +94,10 @@ export default function Page() {
                     technologies and best practices.
                   </p>
                 </div>
-                <Link className="read-more" href="/services/web-development">
+                <a className="read-more" href="/services/web-development" >
                   read more
                   <i className="bi bi-arrow-right icon " />
-                </Link>
+                </a>
               </div>
               {/* End First service box   */}
             </div>
@@ -119,10 +120,10 @@ export default function Page() {
                     and grow your online store.
                   </p>
                 </div>
-                <Link className="read-more" href="/services/ecommerce-development">
+                <a className="read-more" href="/services/ecommerce-development">
                   read more
                   <i className="bi bi-arrow-right icon " />
-                </Link>
+                </a>
               </div>
               {/* End Second service box*/}
             </div>
@@ -145,10 +146,10 @@ export default function Page() {
                     complete control.
                   </p>
                 </div>
-                <Link className="read-more" href="/services/cms-development">
+                <a className="read-more" href="/services/cms-development">
                   read more
                   <i className="bi bi-arrow-right icon " />
-                </Link>
+                </a>
               </div>
               {/* End Third service box*/}
             </div>
@@ -171,10 +172,10 @@ export default function Page() {
                     running smoothly.
                   </p>
                 </div>
-                <Link className="read-more" href="/services/website-maintenance">
+                <a className="read-more" href="/services/website-maintenance">
                   read more
                   <i className="bi bi-arrow-right icon " />
-                </Link>
+                </a>
               </div>
               {/* End fourth service box   */}
             </div>
@@ -197,10 +198,10 @@ export default function Page() {
                     and drive more traffic.
                   </p>
                 </div>
-                <Link className="read-more" href="/services/seo-services">
+                <a className="read-more" href="/services/seo-services">
                   read more
                   <i className="bi bi-arrow-right icon " />
-                </Link>
+                </a>
               </div>
               {/* End 5th service box*/}
             </div>
@@ -223,10 +224,10 @@ export default function Page() {
                     business growth.
                   </p>
                 </div>
-                <Link className="read-more" href="/services/branding-design">
+                <a className="read-more" href="/services/branding-design">
                   read more
                   <i className="bi bi-arrow-right icon " />
-                </Link>
+                </a>
               </div>
               {/* End 6th service box*/}
             </div>
