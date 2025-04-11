@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/admin/:match*",
+      "destination": "/api/admin/index.php"
+    }
+  ]
+}
