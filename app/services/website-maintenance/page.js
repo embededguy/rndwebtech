@@ -61,7 +61,7 @@ export default function Page() {
                 <div className="featured-img-area part">
                   <img
                     className="feat-img img-fluid"
-                    src="/assets/images/services/service-single-featured-img.jpg"
+                    src="/assets/images/services/maintain1.jpg"
                     alt="featured image"
                   />
                 </div>
@@ -86,12 +86,165 @@ export default function Page() {
                       <div className="row">
                         <div className="col-12 col-md-6 mb-3">
                           <div className="img-col">
-                            <img className="img-fluid" src="assets/images/services/maintenance.jpg" alt="Website Maintenance" />
+                            <img className="img-fluid" src="/assets/images/services/service-single-img-col-2.jpg" alt="Website Maintenance" />
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+
+
+                  <div className="part">
+  <h2 className="service-title">
+    Frequently Asked Questions (FAQ)
+  </h2>
+  <div className="faq">
+    <div className="faq-accordion" id="accordion">
+      
+      <div className="card mb-2">
+        <div className="card-header" id="heading-1">
+          <h5 className="mb-0 faq-title">
+            <button
+              className="btn btn-link faq-btn collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-1"
+              aria-expanded="false"
+              aria-controls="collapse-1"
+            >
+              What is SEO and why is it important for my website?
+            </button>
+          </h5>
+        </div>
+        <div
+          id="collapse-1"
+          className="collapse"
+          aria-labelledby="heading-1"
+          data-bs-parent="#accordion"
+        >
+          <div className="card-body">
+            <p className="faq-answer">
+              SEO (Search Engine Optimization) is the process of optimizing your website to improve its visibility on search engines like Google. Higher visibility means more traffic, better brand awareness, and increased conversions for your business.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="card mb-2">
+        <div className="card-header" id="heading-2">
+          <h5 className="mb-0 faq-title">
+            <button
+              className="btn btn-link faq-btn collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-2"
+              aria-expanded="false"
+              aria-controls="collapse-2"
+            >
+              How long does SEO take to show results?
+            </button>
+          </h5>
+        </div>
+        <div
+          id="collapse-2"
+          className="collapse"
+          aria-labelledby="heading-2"
+          data-bs-parent="#accordion"
+        >
+          <div className="card-body">
+            <p className="faq-answer">
+              SEO is a long-term strategy. Typically, you can expect to start seeing significant improvements in organic rankings and traffic within 3 to 6 months, depending on your industry, competition, and the quality of SEO work performed.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="card mb-2">
+        <div className="card-header" id="heading-3">
+          <h5 className="mb-0 faq-title">
+            <button
+              className="btn btn-link faq-btn collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-3"
+              aria-expanded="false"
+              aria-controls="collapse-3"
+            >
+              What SEO services do you offer at RNDwebtech?
+            </button>
+          </h5>
+        </div>
+        <div
+          id="collapse-3"
+          className="collapse"
+          aria-labelledby="heading-3"
+          data-bs-parent="#accordion"
+        >
+          <div className="card-body">
+            <p className="faq-answer">
+              At RNDwebtech, we offer comprehensive SEO services including keyword research, on-page SEO, technical SEO audits, link building, content optimization, local SEO, and ongoing SEO management to help you achieve top rankings.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="card mb-2">
+        <div className="card-header" id="heading-4">
+          <h5 className="mb-0 faq-title">
+            <button
+              className="btn btn-link faq-btn collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-4"
+              aria-expanded="false"
+              aria-controls="collapse-4"
+            >
+              Do you guarantee first-page rankings on Google?
+            </button>
+          </h5>
+        </div>
+        <div
+          id="collapse-4"
+          className="collapse"
+          aria-labelledby="heading-4"
+          data-bs-parent="#accordion"
+        >
+          <div className="card-body">
+            <p className="faq-answer">
+              No honest SEO agency can guarantee first-page rankings, as Google’s algorithms are constantly changing. However, our proven strategies, ethical practices, and expertise significantly boost your chances of achieving top rankings and sustained growth.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="card mb-2">
+        <div className="card-header" id="heading-5">
+          <h5 className="mb-0 faq-title">
+            <button
+              className="btn btn-link faq-btn collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-5"
+              aria-expanded="false"
+              aria-controls="collapse-5"
+            >
+              How do you measure SEO success?
+            </button>
+          </h5>
+        </div>
+        <div
+          id="collapse-5"
+          className="collapse"
+          aria-labelledby="heading-5"
+          data-bs-parent="#accordion"
+        >
+          <div className="card-body">
+            <p className="faq-answer">
+              We track SEO success using key metrics such as organic traffic growth, keyword ranking improvements, bounce rate, domain authority, conversion rates, and ROI. We provide detailed monthly reports so you can see the tangible progress.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
                 </div>
               </div>
             </div>

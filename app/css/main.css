@@ -32,7 +32,7 @@ Template Description: IT Solutions & Business Services Responsive HTML5 Bootstra
 :root {
   /*Colors CSS Varibales*/
   /*================  main-color values */
-  --clr-main: #0F4C81;
+  --clr-main: #09aff4;      /*#0F4C81;*/
   --clr-main-rgb: 0, 184, 217;
   /*================  accent-color values */
   --clr-accent: #0d1857;

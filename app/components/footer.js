@@ -214,7 +214,7 @@ export default function Footer() {
             <div className="row">
               <div className="col-12 col-md-6 d-flex justify-content-start">
                 <p className="creadits">
-                  © 2024 Created by {" "}
+                  © 2024 Created and Managed by {" "}
                   <a className="link" href="https://rndwebtech.com">
                     RNDwebtech
                   </a>

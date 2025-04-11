@@ -956,17 +956,14 @@ export default function Home() {
                           <div className="content">
                             <p className="testimonial-text ">
                               {" "}
-                              ipsum dolor sit amet consectetur adipisicing elit.
-                              Quod, id sequi aut qui est ab, corporis quis
-                              maiores reiciendis explicabo odio tenetur nulla
-                              sint vel.
+                              RNDwebtech transformed our vision into a powerful web platform. Their dedication, technical expertise, and creative solutions truly set them apart.
                             </p>
                           </div>
                         </div>
                         <div className="customer-info ">
                           <div className="customer-details">
-                            <p className="customer-name">Yusuf amin</p>
-                            <p className="customer-role">founder</p>
+                            <p className="customer-name">Emma Collins</p>
+                            <p className="customer-role">Founder, E-commerce Retail</p>
                           </div>
                         </div>
                       </div>
@@ -988,17 +985,14 @@ export default function Home() {
                           <div className="content">
                             <p className="testimonial-text ">
                               {" "}
-                              ipsum dolor sit amet consectetur adipisicing elit.
-                              Quod, id sequi aut qui est ab, corporis quis
-                              maiores reiciendis explicabo odio tenetur nulla
-                              sint vel.
+                              Working with RNDwebtech was seamless and productive. They delivered an SEO-optimized CMS that boosted our online visibility and traffic!
                             </p>
                           </div>
                         </div>
                         <div className="customer-info ">
                           <div className="customer-details">
-                            <p className="customer-name">fouad osman</p>
-                            <p className="customer-role">officer</p>
+                            <p className="customer-name">Michael Reyes</p>
+                            <p className="customer-role">Marketing Manager, Real Estate</p>
                           </div>
                         </div>
                       </div>
@@ -1020,17 +1014,42 @@ export default function Home() {
                           <div className="content">
                             <p className="testimonial-text ">
                               {" "}
-                              ipsum dolor sit amet consectetur adipisicing elit.
-                              Quod, id sequi aut qui est ab, corporis quis
-                              maiores reiciendis explicabo odio tenetur nulla
-                              sint vel.{" "}
+                              Thanks to RNDwebtech's branding team, our company's identity is now bold, modern, and unforgettable. Highly recommended!{" "}
                             </p>
                           </div>
                         </div>
                         <div className="customer-info ">
                           <div className="customer-details">
-                            <p className="customer-name">fairouz mhmd</p>
-                            <p className="customer-role">manager</p>
+                            <p className="customer-name">Sophia Turner</p>
+                            <p className="customer-role">CEO, Health & Wellness</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/*fourth Slide*/}                  
+                  <div className="swiper-slide">
+                    <div className="testmonial-card d-flex align-items-center justify-content-center">
+                      <div className="testimonial-content">
+                        <div className="customer-img ">
+                          <img
+                            className="img-fluid "
+                            loading="lazy"
+                            src="assets/images/testimonials/1.png"
+                            alt="First Slide "
+                          />
+                        </div>
+                        <div className="customer-testimonial">
+                          <div className="content">
+                            <p className="testimonial-text ">
+                              {" "}
+                              The web application RNDwebtech developed for us exceeded all expectations — fast, secure, and beautifully designed!                            </p>
+                          </div>
+                        </div>
+                        <div className="customer-info ">
+                          <div className="customer-details">
+                            <p className="customer-name">Daniel Kim</p>
+                            <p className="customer-role">CTO, Finance & Investment</p>
                           </div>
                         </div>
                       </div>
@@ -1263,6 +1282,11 @@ export default function Home() {
       </section>
       {/* End  blog Section*/}
       <Footer />
+      {/* Start back-to-top Button*/}
+      <div className="back-to-top" id="back-to-top">
+        <i className="bi bi-arrow-up icon " />
+      </div>
+      {/* End back-to-top Button*/}
     </>
   );
 }
