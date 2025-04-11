@@ -1,5 +1,14 @@
 <?php
-  include('config/db.php');
+  ob_start();
+  // Set sessions
+  if(!isset($_SESSION)) {
+      session_start();
+  }
+  $hostname = "localhost";
+  $username = "user";
+  $password = "password";
+  $dbname = "rnd";
+  $conn = mysqli_connect($hostname, $username, $password, $dbname) or die("Database connection not established.");
   
   if (!isset($_SESSION["admin_logged_in"]) || $_SESSION["admin_logged_in"] !== true) {
       // Redirect to the login page if not logged in
@@ -33,17 +42,17 @@
     <link rel="icon" href="./assets/images/favicon.png">
     <title>Blog List | RNDWebTech</title>
     <!-- Simple bar CSS -->
-    <link rel="stylesheet" href="css/simplebar.css">
+    <link rel="stylesheet" href="assets/css/simplebar.css">
     <!-- Fonts CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- Icons CSS -->
-    <link rel="stylesheet" href="css/feather.css">
-    <link rel="stylesheet" href="css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="assets/css/feather.css">
+    <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.css">
     <!-- Date Range Picker CSS -->
-    <link rel="stylesheet" href="css/daterangepicker.css">
+    <link rel="stylesheet" href="assets/css/daterangepicker.css">
     <!-- App CSS -->
-    <link rel="stylesheet" href="css/app-light.css" id="lightTheme">
-    <link rel="stylesheet" href="css/app-dark.css" id="darkTheme" disabled>
+    <link rel="stylesheet" href="assets/css/app-light.css" id="lightTheme">
+    <link rel="stylesheet" href="assets/css/app-dark.css" id="darkTheme" disabled>
     <style>
       .loading-screen {
         position: fixed;
@@ -148,17 +157,17 @@
         </div> <!-- .container-fluid -->
       </main> <!-- main -->
     </div> <!-- .wrapper -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/moment.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/simplebar.min.js"></script>
-    <script src='js/daterangepicker.js'></script>
-    <script src='js/jquery.stickOnScroll.js'></script>
-    <script src="js/tinycolor-min.js"></script>
-    <script src="js/config.js"></script>
-    <script src='js/jquery.dataTables.min.js'></script>
-    <script src='js/dataTables.bootstrap4.min.js'></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/simplebar.min.js"></script>
+    <script src='assets/js/daterangepicker.js'></script>
+    <script src='assets/js/jquery.stickOnScroll.js'></script>
+    <script src="assets/js/tinycolor-min.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src='assets/js/jquery.dataTables.min.js'></script>
+    <script src='assets/js/dataTables.bootstrap4.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>    
     <script>
       function exportToExcel() {
@@ -219,7 +228,7 @@
           }
       });
     </script>
-    <script src="js/apps.js"></script>
+    <script src="assets/js/apps.js"></script>
     
   </body>
 </html>

@@ -1,5 +1,14 @@
 <?php
-include('config/db.php');
+ob_start();
+// Set sessions
+if(!isset($_SESSION)) {
+    session_start();
+}
+$hostname = "localhost";
+$username = "user";
+$password = "password";
+$dbname = "rnd";
+$conn = mysqli_connect($hostname, $username, $password, $dbname) or die("Database connection not established.");
 
 if (!isset($_SESSION["admin_logged_in"]) || $_SESSION["admin_logged_in"] !== true) {
     // Redirect to the login page if not logged in
@@ -21,22 +30,22 @@ if (!isset($_SESSION['csrf_token'])) {
     <link rel="icon" href="./assets/images/favicon.png">
     <title>Add Blog Type | RNDWebTech </title>
     <!-- Simple bar CSS -->
-    <link rel="stylesheet" href="css/simplebar.css">
+    <link rel="stylesheet" href="assets/css/simplebar.css">
     <!-- Fonts CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- Icons CSS -->
-    <link rel="stylesheet" href="css/feather.css">
-    <link rel="stylesheet" href="css/select2.css">
-    <link rel="stylesheet" href="css/dropzone.css">
-    <link rel="stylesheet" href="css/uppy.min.css">
-    <link rel="stylesheet" href="css/jquery.steps.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-    <link rel="stylesheet" href="css/quill.snow.css">
+    <link rel="stylesheet" href="assets/css/feather.css">
+    <link rel="stylesheet" href="assets/css/select2.css">
+    <link rel="stylesheet" href="assets/css/dropzone.css">
+    <link rel="stylesheet" href="assets/css/uppy.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.steps.css">
+    <link rel="stylesheet" href="assets/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="assets/css/quill.snow.css">
     <!-- Date Range Picker CSS -->
-    <link rel="stylesheet" href="css/daterangepicker.css">
+    <link rel="stylesheet" href="assets/css/daterangepicker.css">
     <!-- App CSS -->
-    <link rel="stylesheet" href="css/app-light.css" id="lightTheme">
-    <link rel="stylesheet" href="css/app-dark.css" id="darkTheme" disabled>
+    <link rel="stylesheet" href="assets/css/app-light.css" id="lightTheme">
+    <link rel="stylesheet" href="assets/css/app-dark.css" id="darkTheme" disabled>
     <style>
         .loading-screen {
             position: fixed;
@@ -132,35 +141,35 @@ if (!isset($_SESSION['csrf_token'])) {
         </main> <!-- main -->
     </div> <!-- .wrapper -->
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/moment.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/simplebar.min.js"></script>
-    <script src='js/daterangepicker.js'></script>
-    <script src='js/jquery.stickOnScroll.js'></script>
-    <script src="js/tinycolor-min.js"></script>
-    <script src="js/config.js"></script>
-    <script src="js/d3.min.js"></script>
-    <script src="js/topojson.min.js"></script>
-    <script src="js/datamaps.all.min.js"></script>
-    <script src="js/datamaps-zoomto.js"></script>
-    <script src="js/datamaps.custom.js"></script>
-    <script src="js/Chart.min.js"></script>
-    <script src="js/gauge.min.js"></script>
-    <script src="js/jquery.sparkline.min.js"></script>
-    <script src="js/apexcharts.min.js"></script>
-    <script src="js/apexcharts.custom.js"></script>
-    <script src='js/jquery.mask.min.js'></script>
-    <script src='js/select2.min.js'></script>
-    <script src='js/jquery.steps.min.js'></script>
-    <script src='js/jquery.validate.min.js'></script>
-    <script src='js/jquery.timepicker.js'></script>
-    <script src='js/dropzone.min.js'></script>
-    <script src='js/uppy.min.js'></script>
-    <script src='js/quill.min.js'></script>
-    <script src="js/apps.js"></script>
-    <script type="text/javascript" src="js/quill-better-table.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/simplebar.min.js"></script>
+    <script src='assets/js/daterangepicker.js'></script>
+    <script src='assets/js/jquery.stickOnScroll.js'></script>
+    <script src="assets/js/tinycolor-min.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/d3.min.js"></script>
+    <script src="assets/js/topojson.min.js"></script>
+    <script src="assets/js/datamaps.all.min.js"></script>
+    <script src="assets/js/datamaps-zoomto.js"></script>
+    <script src="assets/js/datamaps.custom.js"></script>
+    <script src="assets/js/Chart.min.js"></script>
+    <script src="assets/js/gauge.min.js"></script>
+    <script src="assets/js/jquery.sparkline.min.js"></script>
+    <script src="assets/js/apexcharts.min.js"></script>
+    <script src="assets/js/apexcharts.custom.js"></script>
+    <script src='assets/js/jquery.mask.min.js'></script>
+    <script src='assets/js/select2.min.js'></script>
+    <script src='assets/js/jquery.steps.min.js'></script>
+    <script src='assets/js/jquery.validate.min.js'></script>
+    <script src='assets/js/jquery.timepicker.js'></script>
+    <script src='assets/js/dropzone.min.js'></script>
+    <script src='assets/js/uppy.min.js'></script>
+    <script src='assets/js/quill.min.js'></script>
+    <script src="assets/js/apps.js"></script>
+    <script type="text/javascript" src="assets/js/quill-better-table.js"></script>
     
     <script>
         $('.select2').select2({
