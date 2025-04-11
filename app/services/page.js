@@ -26,7 +26,7 @@ export default function Page() {
           style={{
             backgroundImage: "url('/assets/images/hero/inner-page-hero.jpg')",
           }}
-        />
+        ></div>
         <div className="overlay-color" data-bg-opacity=".75" />
         <div className="container">
           <div className="hero-text-area centerd">
