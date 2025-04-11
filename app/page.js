@@ -187,7 +187,7 @@ export default function Home() {
               </p>
             </div>
             <div className=" cta-area   wow fadeInUp" data-wow-delay=".8s">
-              <Link className="cta-btn btn-solid    ">
+              <Link className="cta-btn btn-solid    " href="/services">
                 see all services <i className="bi bi-arrow-right icon " />
               </Link>
             </div>

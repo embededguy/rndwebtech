@@ -8,6 +8,7 @@ import './css/vendors/all.min.css';
 import './css/vendors/bootstrap-icons-1.9.1/bootstrap-icons.css';
 import './css/main.css';
 import Script from "next/script";
+import Head from "next/head";
 
 
 const geistSans = Geist({
@@ -32,7 +33,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
+      <Head>
         <Script src="/js/vendors/jquery-3.6.1.min.js" strategy="beforeInteractive"/>
         
         <Script src="/js/vendors/bootstrap.bundle.min.js" strategy="beforeInteractive"/>
@@ -49,7 +50,7 @@ export default function RootLayout({ children }) {
         
         <Script src="/js/main.js"/>
 
-      </head>
+      </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} dark-theme vertical dark`}>
         {children}
       </body>
