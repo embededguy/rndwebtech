@@ -6,7 +6,7 @@ import Link from 'next/link'
 export const metadata = {
   title: "Privacy Policy | Web App Development, CMS & Branding Experts",
   keywords:
-    "Explore Services at RNDwebtech, IT company, web development, SEO services, CMS solutions, branding, digital solutions",
+    "Privacy Policy of RNDwebtech, IT company, web development, SEO services, CMS solutions, branding, digital solutions",
   description:
     "RNDwebtech delivers cutting-edge web applications, CMS solutions, SEO, and branding services. Partner with experts to grow your digital presence.",
 };
