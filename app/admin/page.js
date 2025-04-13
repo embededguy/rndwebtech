@@ -6,15 +6,33 @@ import Sidebar from './components/sidebar.js';
 import Head from "next/head";
 import Link from 'next/link'
 
+import { redirect } from 'next/navigation';
+import { cookies } from 'next/headers';
+
+import { supabaseServer } from '@/lib/supabaseServer';
+
+
 export const metadata = {
-  title: "Login | Web App Development, CMS & Branding Experts", 
+  title: "Admin Dashboard | Web App Development, CMS & Branding Experts", 
   keywords: "about RNDwebtech, IT company, web development, SEO services, CMS solutions, branding, digital solutions",
   description: "RNDwebtech delivers cutting-edge web applications, CMS solutions, SEO, and branding services. Partner with experts to grow your digital presence.",
 };
-export default function Page() {
+
+export default async function Page({children}) {
+  const supabase = await supabaseServer();
+
+  const { data } = await supabase.auth.getSession();
+
+  console.log(data)
+
+  if (!data) {
+    redirect('/admin/login');
+  }
+
   return (
     <>
       <Sidebar/>
+      {children}
     </>
   );
 }

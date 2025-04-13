@@ -1,6 +1,18 @@
+'use client';
+
+import { supabase } from '@/lib/supabaseClient';
+import { useRouter } from 'next/navigation';
+
 import Link from 'next/link'
 
 export default function Sidebar() {
+  const router = useRouter();
+
+  const logout = async () => {
+    await supabase.auth.signOut();
+    router.push('/admin/login');
+  };
+
   return (
   	<>
       <>
@@ -34,8 +46,8 @@ export default function Sidebar() {
         >
           <span className="avatar avatar-sm mt-2">
             <img
-              width={50}
-              
+              width={70}
+              src="/user.png"
               alt="..."
               className="avatar-img rounded-circle"
             />
@@ -150,8 +162,8 @@ export default function Sidebar() {
       </ul>
       <div className="btn-box w-100 mt-4 mb-1">
         <a
-          href="./logout.php"
-          target="_self"
+          onClick={logout}
+          
           className="btn mb-2 btn-danger btn-lg btn-block"
         >
           <i className="fe fe-log-out fe-12 mx-2" />

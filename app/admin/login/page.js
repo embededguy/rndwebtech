@@ -1,22 +1,42 @@
-import '../../css/admin-css/app-dark.css';
+'use client';
 
+import { supabase } from '@/lib/supabaseClient';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Head from "next/head";
 import Link from 'next/link'
 
-export const metadata = {
-  title: "Login | Web App Development, CMS & Branding Experts", 
-  keywords: "about RNDwebtech, IT company, web development, SEO services, CMS solutions, branding, digital solutions",
-  description: "RNDwebtech delivers cutting-edge web applications, CMS solutions, SEO, and branding services. Partner with experts to grow your digital presence.",
-};
+import '../../css/admin-css/app-dark.css';
+
 export default function Page() {
+  const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError('');
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      setError(error.message);
+    } else {
+      router.push('/admin');
+    }
+  };
+
   return (
     <>
       <div className="wrapper vh-100">
         <div className="row align-items-center h-100">
           <form
             className="col-lg-3 col-md-4 col-10 mx-auto text-center"
-            method="POST"
-            action="./controller/process_login.php"
+            onSubmit={handleLogin}
           >
             <a
               className="navbar-brand mx-auto mt-2 flex-fill text-center"
@@ -33,13 +53,16 @@ export default function Page() {
                 Email address
               </label>
               <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 name="email"
                 id="inputEmail"
                 className="form-control form-control-lg"
                 placeholder="Email address"
-                required=""
-                autofocus=""
+                
+                autoFocus={true}
+                required
               />
             </div>
             <div className="form-group">
@@ -52,12 +75,14 @@ export default function Page() {
                 id="inputPassword"
                 className="form-control form-control-lg"
                 placeholder="Password"
-                required=""
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                required
               />
             </div>
-            <div className="checkbox mb-3">
+            <div className="checkbox mb-2">
               <label>
-                <input type="checkbox" defaultValue="remember-me" /> Stay logged in{" "}
+                {error && <p className="text-danger mb-4">{error}</p>}              
               </label>
             </div>
             <button className="btn btn-lg btn-primary btn-block" type="submit">
