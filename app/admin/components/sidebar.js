@@ -90,7 +90,7 @@ export default function Sidebar() {
       </div>
       <ul className="navbar-nav flex-fill w-100 mb-2">
         <li className="nav-item dropdown">
-          <a href="./" aria-expanded="false" className="nav-link">
+          <a href="/admin" aria-expanded="false" className="nav-link">
             <i className="fe fe-home fe-16" />
             <span className="ml-3 item-text">Dashboard</span>
             <span className="sr-only">(current)</span>
@@ -114,12 +114,12 @@ export default function Sidebar() {
           </a>
           <ul className="collapse list-unstyled pl-4 w-100" id="blog">
             <li className="nav-item sauth">
-              <a className="nav-link pl-3" href="./blog_add.php">
+              <a className="nav-link pl-3" href="/admin/blog/add">
                 <span className="ml-1 item-text">Add Blog</span>
               </a>
             </li>
             <li className="nav-item sauth">
-              <a className="nav-link pl-3" href="./blog_type_add.php">
+              <a className="nav-link pl-3" href="/admin/blog-type/add">
                 <span className="ml-1 item-text">Add Blog Type</span>
               </a>
             </li>
