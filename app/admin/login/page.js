@@ -1,6 +1,5 @@
 'use client';
 
-import { supabase } from '@/lib/supabaseClient';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Head from "next/head";
@@ -8,27 +7,35 @@ import Link from 'next/link'
 
 import '../../css/admin-css/app-dark.css';
 
+import { login } from './actions'
+
 export default function Page() {
+  // const session = await getSession()
+
+  // if (session) {
+  //   redirect('/admin')
+  // }
+
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setError('');
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+  //   setError('');
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+  //   const { error } = await supabase.auth.signInWithPassword({
+  //     email,
+  //     password,
+  //   });
 
-    if (error) {
-      setError(error.message);
-    } else {
-      router.push('/admin');
-    }
-  };
+  //   if (error) {
+  //     setError(error.message);
+  //   } else {
+  //     router.push('/admin');
+  //   }
+  // };
 
   return (
     <>
@@ -36,7 +43,7 @@ export default function Page() {
         <div className="row align-items-center h-100">
           <form
             className="col-lg-3 col-md-4 col-10 mx-auto text-center"
-            onSubmit={handleLogin}
+            
           >
             <a
               className="navbar-brand mx-auto mt-2 flex-fill text-center"
@@ -85,7 +92,7 @@ export default function Page() {
                 {error && <p className="text-danger mb-4">{error}</p>}              
               </label>
             </div>
-            <button className="btn btn-lg btn-primary btn-block" type="submit">
+            <button formAction={login} className="btn btn-lg btn-primary btn-block" type="submit">
               Login
             </button>
             <p className="mt-5 mb-3 text-muted">
