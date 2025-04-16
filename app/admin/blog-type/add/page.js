@@ -7,13 +7,10 @@ import Head from "next/head";
 import Link from 'next/link'
 
 import { redirect } from 'next/navigation';
-import { supabaseServer } from '@/lib/supabaseServer';
 
 import { createClient } from '@/utils/supabase/server'
 
 import { addBlogType } from './actions'
-
-
 
 export const metadata = {
   title: "Admin Dashboard | Web App Development, CMS & Branding Experts", 

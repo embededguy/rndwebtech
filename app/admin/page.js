@@ -29,7 +29,6 @@ export default async function Page({children}) {
   const { count, error2 } = await supabase.from('blogs').select('*', { count: 'exact', head: true }) // head:true avoids fetching data
   const { blogTypeCount, error3 } = await supabase.from('blog_types').select('*', { count: 'exact', head: true }) // head:true avoids fetching data
 
-  console.log(count)
 
   const currentYear = new Date().getFullYear();
 

@@ -625,6 +625,68 @@ export default function Home() {
         </div>
       </section>
       {/* End  stats Section*/}
+      <section>
+        <div className="gradient-background">
+          <div className="gradient-sphere sphere-2" />
+          <div className="gradient-sphere sphere-3" />
+          <div className="glow" />
+          <div className="particles-container" id="particles-container" />
+        </div>
+        <div className="container">
+          <div className="sec-heading  ">
+            <div className="content-area">
+              <span
+                className=" pre-title       wow fadeInUp "
+                data-wow-delay=".2s"
+              >
+                Industries
+              </span>
+              <h2 className=" title    wow fadeInUp" data-wow-delay=".4s">
+                Industries <span className="hollow-text">We Serve</span>
+              </h2>
+            </div>
+            <div className=" cta-area   wow fadeInUp" data-wow-delay=".8s">
+              
+            </div>
+          </div>
+          <div class="containerx">
+            <div class="card">
+              <div class="icon"><i class="fas fa-heartbeat"></i></div>
+              <div class="title">Healthcare & Fitness</div>
+            </div>
+            <div class="card">
+              <div class="icon"><i class="fas fa-industry"></i></div>
+              <div class="title">Manufacturing & Automobile Industry</div>
+            </div>
+            <div class="card">
+              <div class="icon"><i class="fas fa-shopping-cart"></i></div>
+              <div class="title">E-commerce & Retail</div>
+            </div>
+            <div class="card">
+              <div class="icon"><i class="fas fa-book-open"></i></div>
+              <div class="title">Education and E-Learning</div>
+            </div>
+            <div class="card">
+              <div class="icon"><i class="fas fa-university"></i></div>
+              <div class="title">Banking & Finance</div>
+            </div>
+            <div class="card">
+              <div class="icon"><i class="fas fa-newspaper"></i></div>
+              <div class="title">News & Publication</div>
+            </div>
+            <div class="card">
+              <div class="icon"><i class="fas fa-shipping-fast"></i></div>
+              <div class="title">Supplychain & Logistics</div>
+            </div>
+            <div class="card">
+              <div class="icon"><i class="fas fa-utensils"></i></div>
+              <div class="title">Food & Beverages</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* Start  portfolio-slider Section*/}
       <section className="portfolio mega-section   " id="portfolio">
         <div className="container">

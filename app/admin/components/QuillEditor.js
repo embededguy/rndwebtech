@@ -1,18 +1,18 @@
 'use client'
 
-import { useEffect, useRef } from 'react';
-import Quill from 'quill';
-import 'quill/dist/quill.snow.css';
-import './quill-dark.css';
+import { useEffect, useRef } from 'react'
+import Quill from 'quill'
+import 'quill/dist/quill.snow.css'
+import './quill-dark.css'
 
 export default function QuillBasic() {
-  const editorRef = useRef(null);
-  const quillInstance = useRef(null); // To store the Quill instance
+  const editorRef = useRef(null)
+  const quillInstance = useRef(null)
 
   useEffect(() => {
-    if (!editorRef.current || quillInstance.current) return; // Prevent re-initialization
+    if (!editorRef.current || quillInstance.current) return
 
-    quillInstance.current = new Quill(editorRef.current, {
+    const quill = new Quill(editorRef.current, {
       theme: 'snow',
       placeholder: 'Start typing your content...',
       modules: {
@@ -23,27 +23,29 @@ export default function QuillBasic() {
           ['link', 'image'],
         ],
       },
-    });
+    })
+
+    // Set dark mode styles    
+    quillInstance.current = quill
+
+    // Update hidden input every 300ms
+    const interval = setInterval(() => {
+      const hiddenInput = document.getElementById('contentx')
+      if (hiddenInput) {
+        hiddenInput.value = quill.root.innerHTML
+      }
+    }, 300)
 
     return () => {
-      if (quillInstance.current) {
-        // Proper cleanup
-        const quill = quillInstance.current;
-        quill?.off?.();
-        quillInstance.current = null;
-        
-        // Remove any existing toolbar
-        const toolbar = editorRef.current?.querySelector('.ql-toolbar');
-        if (toolbar) {
-          toolbar.remove();
-        }
-      }
-    };
-  }, []);
+      clearInterval(interval)
+      quillInstance.current = null
+    }
+  }, [])
 
   return (
     <div>
-      <div ref={editorRef} style={{ height: '300px' }} />
+      <div ref={editorRef} style={{ minHeight: '300px' }} />
+      <input type="hidden" id="contentx" name="content" />
     </div>
-  );
+  )
 }

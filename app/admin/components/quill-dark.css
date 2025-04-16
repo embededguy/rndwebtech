@@ -1,6 +1,10 @@
 /* Dark theme for Quill editor */
+.ql-snow.ql-toolbar:first-child {
+  display: none;
+}
+
 .ql-snow.ql-toolbar {
-  background-color: #2d3748;
+  background-color: transparent;
   border-color: #4a5568 !important;
 }
 
@@ -27,7 +31,7 @@
 
 .ql-snow.ql-container {
   border-color: #4a5568 !important;
-  background-color: #1a202c;
+  background-color: transparent;
   color: #e2e8f0;
 }
 

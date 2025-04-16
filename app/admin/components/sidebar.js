@@ -137,7 +137,7 @@ export default function Sidebar() {
         </li>
       </ul>
       <p className="text-muted nav-heading mt-4 mb-1" id="h-blog">
-        <span>Logs &amp; Analytics</span>
+        <span>Subscribers &amp; Contact</span>
       </p>
       <ul className="navbar-nav flex-fill w-100 mb-2">
         <li className="nav-item dropdown">
@@ -153,7 +153,7 @@ export default function Sidebar() {
           </a>
           <ul className="collapse list-unstyled pl-4 w-100" id="traffic">
             <li className="nav-item sauth">
-              <a className="nav-link pl-3" href="./blog_type_list.php">
+              <a className="nav-link pl-3" href="/admin/subscribers/list">
                 <span className="ml-1 item-text">List Subscribers</span>
               </a>
             </li>
@@ -167,7 +167,7 @@ export default function Sidebar() {
           className="btn mb-2 btn-danger btn-lg btn-block"
         >
           <i className="fe fe-log-out fe-12 mx-2" />
-          <span className="small">Log Out</span>
+          <span className="small text-white">Log Out</span>
         </a>
       </div>
     </nav>
