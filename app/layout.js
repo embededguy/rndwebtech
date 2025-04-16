@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
         <Script src="/admin-js/apps.js" strategy="beforeInteractive"/>
         <Script src="/admin-js/bootstrap.min.js" strategy="beforeInteractive"/>
         <Script src="/admin-js/jquery.min.js" strategy="beforeInteractive"/>
-
+        <Script src="/admin-js/config.js" strategy="beforeInteractive"/>
 
         <Script src="/js/vendors/bootstrap.bundle.min.js" strategy="beforeInteractive"/>
         

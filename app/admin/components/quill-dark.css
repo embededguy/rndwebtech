@@ -1,0 +1,73 @@
+/* Dark theme for Quill editor */
+.ql-snow.ql-toolbar {
+  background-color: #2d3748;
+  border-color: #4a5568 !important;
+}
+
+.ql-snow .ql-stroke {
+  stroke: #e2e8f0;
+}
+
+.ql-snow .ql-fill {
+  fill: #e2e8f0;
+}
+
+.ql-snow .ql-picker {
+  color: #e2e8f0;
+}
+
+.ql-snow .ql-picker-options {
+  background-color: #2d3748;
+  border-color: #4a5568 !important;
+}
+
+.ql-snow .ql-picker-label {
+  color: #e2e8f0;
+}
+
+.ql-snow.ql-container {
+  border-color: #4a5568 !important;
+  background-color: #1a202c;
+  color: #e2e8f0;
+}
+
+.ql-editor {
+  color: #e2e8f0;
+  font-family: inherit;
+}
+
+.ql-editor.ql-blank::before {
+  color: #718096;
+  font-style: normal;
+}
+
+/* Customize the dropdowns */
+.ql-snow .ql-picker-item {
+  color: #e2e8f0;
+}
+
+.ql-snow .ql-picker-item:hover {
+  color: #63b3ed;
+}
+
+/* Link tooltip */
+.ql-snow .ql-tooltip {
+  background-color: #2d3748;
+  border-color: #4a5568;
+  color: #e2e8f0;
+  box-shadow: 0 0 5px #1a202c;
+}
+
+.ql-snow .ql-tooltip input[type=text] {
+  background-color: #1a202c;
+  color: #e2e8f0;
+  border-color: #4a5568;
+}
+
+.ql-snow .ql-tooltip a.ql-action::after {
+  color: #63b3ed;
+}
+
+.ql-snow .ql-tooltip a.ql-remove::before {
+  color: #e53e3e;
+}

@@ -124,12 +124,12 @@ export default function Sidebar() {
               </a>
             </li>
             <li className="nav-item sauth">
-              <a className="nav-link pl-3" href="./blog_list.php">
+              <a className="nav-link pl-3" href="/admin/blog/list">
                 <span className="ml-1 item-text">List Blogs</span>
               </a>
             </li>
             <li className="nav-item sauth">
-              <a className="nav-link pl-3" href="./blog_type_list.php">
+              <a className="nav-link pl-3" href="/admin/blog-type/list">
                 <span className="ml-1 item-text">List Blogs Types</span>
               </a>
             </li>

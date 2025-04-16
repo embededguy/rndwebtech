@@ -1,9 +1,7 @@
 import '../../../css/admin-css/app-dark.css';
 import '../../../css/admin-css/feather.css';
 import '../../../css/admin-css/simplebar.css';
-
-
-
+// 
 import Sidebar from '../../components/sidebar.js';
 import Head from "next/head";
 import Link from 'next/link'
@@ -13,25 +11,24 @@ import { supabaseServer } from '@/lib/supabaseServer';
 
 import { createClient } from '@/utils/supabase/server'
 
+import { addBlogType } from './actions'
+
+
+
 export const metadata = {
   title: "Admin Dashboard | Web App Development, CMS & Branding Experts", 
   keywords: "about RNDwebtech, IT company, web development, SEO services, CMS solutions, branding, digital solutions",
   description: "RNDwebtech delivers cutting-edge web applications, CMS solutions, SEO, and branding services. Partner with experts to grow your digital presence.",
 };
 
-export default async function Page({children}) {
+export default async function Page({ searchParams }) {
 
   const supabase = await createClient()  
   const { data, error } = await supabase.auth.getUser()  
 
   if (error || !data?.user) {    
-    redirect('/admin/login')  
+    redirect('/admin/login')
   }
-
-  const { count, error2 } = await supabase.from('blogs').select('*', { count: 'exact', head: true }) // head:true avoids fetching data
-  const { blogTypeCount, error3 } = await supabase.from('blog_types').select('*', { count: 'exact', head: true }) // head:true avoids fetching data
-
-  console.log(count)
 
   const currentYear = new Date().getFullYear();
 
@@ -42,6 +39,18 @@ export default async function Page({children}) {
     {/* Main Sidebar*/}
     <main role="main" className="main-content">
       <div className="container-fluid">
+        {searchParams?.success === 'true' && (
+  <div className="alert alert-success alert-dismissible fade show" role="alert" style={{textAlign:"center"}}>
+    Blog Type added successfully!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style={{padding:"1rem 1rem"}}></button>
+  </div>
+)}
+
+{searchParams?.success === 'false' && (
+  <div className="alert alert-danger" role="alert">
+    Failed to add Blog Type. Please try again.
+  </div>
+)}
         <div className="row justify-content-center">
           <div className="col-12">
             <h2 className="page-title" style={{fontWeight:"500"}}>
@@ -58,8 +67,7 @@ export default async function Page({children}) {
                 <div className="card-body">
                   <form
                     id="uploadForm"
-                    action="./controller/process_add_blog_type.php"
-                    method="POST"
+                    action={addBlogType}
                   >
                     <div className="form-row">
                       <div className="form-group col-md-4">
@@ -67,7 +75,7 @@ export default async function Page({children}) {
                         <input
                           type="hidden"
                           name="csrf_token"
-                          defaultValue="<?php echo $_SESSION['csrf_token']; ?>"
+                          
                         />
                         <input
                           name="name"
@@ -75,6 +83,7 @@ export default async function Page({children}) {
                           className="form-control"
                           id=""
                           placeholder="Blog Type"
+                          required
                         />
                       </div>
                     </div>
@@ -85,8 +94,6 @@ export default async function Page({children}) {
                 </div>
                 </div>
                
-                
-                
               </div>
             </div>
           </div>{" "}
@@ -98,7 +105,7 @@ export default async function Page({children}) {
       <div className="row">
         <div className="col-md-12">
           <p className="mt-5 mb-3 text-muted">
-                © {currentYear}, Developed & Managed by RNDWebTech.
+                © {currentYear}, Developed & Managed by <a href="https://rndwebtech.com">RNDWebTech</a>.
               </p>
         </div>
       </div>{" "}
