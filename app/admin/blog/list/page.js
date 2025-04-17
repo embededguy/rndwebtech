@@ -11,6 +11,9 @@ import { supabaseServer } from "@/lib/supabaseServer";
 
 import { createClient } from "@/utils/supabase/server";
 
+import {deleteBlog} from "./actions";
+
+
 export const metadata = {
   title: "Admin Dashboard | Web App Development, CMS & Branding Experts",
   keywords:
@@ -20,6 +23,8 @@ export const metadata = {
 };
 
 export default async function Page({ searchParams }) {
+    const searchParamsx = await searchParams;
+
   const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
 
@@ -32,6 +37,8 @@ export default async function Page({ searchParams }) {
     .order("id", { ascending: false });
   const currentYear = new Date().getFullYear();
 
+  const success = searchParamsx?.success
+  const errorMsg = searchParamsx?.error
   return (
     <>
       <div className="wrapper ">
@@ -56,30 +63,57 @@ export default async function Page({ searchParams }) {
                           <div className="card shadow mb-4 mt-4">
                             <div className="card-header">
                               <strong className="card-title text-white">
-                                ALL BLOGSW
+                                ALL BLOGS
                               </strong>
                             </div>
+                            {success && (
+                        <div className="alert alert-success alert-dismissible fade show" role="alert" style={{textAlign:"center"}}>
+                          Blog Deleted successfully!
+                          <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close" style={{padding:"1rem 1rem"}}></button>
+                        </div>
+                      )}
+                      {errorMsg && (
+                        <div className="alert alert-danger">
+                          {decodeURIComponent(errorMsg)}
+                        </div>
+                      )}
                             <div className="card-body">
-                              <div className="table-responsive">
+                              <div className="table-responsive table-scrollable">
                                 <table className="table table-dark table-striped table-bordered">
                                   <thead>
                                     <tr>
                                       <th scope="col">#ID</th>
+                                      <th scope="col">Created</th>
                                       <th scope="col">Blog Title</th>
                                       <th scope="col">Blog Slug</th>
-                                      <th scope="col">Created</th>
+                                      <th scope="col">Actions</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     {blogTypes?.map((type) => (
                                       <tr key={type.id}>
                                         <td>{type.id}</td>
-                                        <td>{type.title}</td>
-                                        <td>{type.slug}</td>
                                         <td>
                                           {new Date(
                                             type.created_at
                                           ).toLocaleString()}
+                                        </td>
+                                        <td>{type.title}</td>
+                                        <td>{type.slug}</td>
+                                        <td>
+                                          <form action={async () => {
+                                          'use server';
+                                            await deleteBlog(type.id); 
+                                            redirect('/admin/blog/list');     
+                                           // or wherever you want to redirect after deletion
+                                        }}>
+                                          <button 
+                                            type="submit" 
+                                            className="btn btn-danger btn-sm"
+                                          >
+                                            Delete
+                                          </button>
+                                          </form>
                                         </td>
                                       </tr>
                                     ))}

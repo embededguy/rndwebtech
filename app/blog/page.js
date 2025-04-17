@@ -1,675 +1,316 @@
-import Footer from '../components/footer.js';
-import Header from '../components/header.js';
+import Footer from "../components/footer.js";
+import Header from "../components/header.js";
 import Head from "next/head";
-import Link from 'next/link'
+import Link from "next/link";
+import { createClient } from "@/utils/supabase/server";
 
 export const metadata = {
-  title: "Explore Blogs | Web App Development, CMS & Branding Experts", 
-  keywords: "about RNDwebtech, IT company, web development, SEO services, CMS solutions, branding, digital solutions",
-  description: "RNDwebtech delivers cutting-edge web applications, CMS solutions, SEO, and branding services. Partner with experts to grow your digital presence.",
+  title: "Explore Blogs | Web App Development, CMS & Branding Experts",
+  keywords:
+    "about RNDwebtech, IT company, web development, SEO services, CMS solutions, branding, digital solutions",
+  description:
+    "RNDwebtech delivers cutting-edge web applications, CMS solutions, SEO, and branding services. Partner with experts to grow your digital presence.",
 };
-export default function Page() {
+export default async function Page() {
+  const supabase = await createClient()
+
+  const { data, error } = await supabase
+    .from('blog_types')
+    .select('name, blogs(count)')
+    .order('name', { ascending: true });
+
+  const { data: blogs, errorx } = await supabase
+    .from('blogs')
+    .select(`
+      id,
+      title,
+      content,
+      slug,
+      imagepath,
+      tags,
+      created_at,
+      blog_type_id:blog_types!inner(
+        id,
+        name
+      )
+      
+    `)
+    .order('created_at', { ascending: false });
+    const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = date.toLocaleString('default', { month: 'short' });
+    const year = date.getFullYear();
+    return { day, month, year };
+  };
+  function generateExcerpt(content, paragraphCount = 2, maxLength = 120) {
+  if (!content) return '';
+  
+  // Split into paragraphs (assuming content uses <p> tags or double newlines)
+  const paragraphs = content.split('</p>').slice(0, paragraphCount);
+  let excerpt = paragraphs.join('</p>') + '</p>';
+  
+  // Clean up HTML tags if needed
+  excerpt = excerpt.replace(/<[^>]*>/g, ' ').trim();
+  
+  // Limit length
+  if (excerpt.length > maxLength) {
+    excerpt = excerpt.substring(0, maxLength) + '...';
+  }
+  
+  return excerpt;
+}
+const allTags = blogs.flatMap(blog => {
+    try {
+      return JSON.parse(blog.tags.replace(/'/g, '"')) || [];
+    } catch {
+      return [];
+    }
+  });
+
   return (
     <>
       {/*Start Page Header*/}
-      <Header activePage="blog"/>
+      <Header activePage="blog" />
       {/*End Page Header*/}
       {/* Start inner Page hero*/}
-  <section
-    className="d-flex align-items-center page-hero  inner-page-hero "
-    id="page-hero"
-  >
-    <div
-      className="overlay-photo-image-bg parallax"
-      data-bg-img="assets/images/hero/inner-page-hero.jpg"
-      data-bg-opacity={1} style={{ "backgroundImage":"url('/assets/images/hero/inner-page-hero.jpg')"}}
-    />
-    <div className="overlay-color" data-bg-opacity=".75" />
-    <div className="container">
-      <div className="hero-text-area centerd">
-        <h1 className="hero-title  wow fadeInUp" data-wow-delay=".2s">
-          Blog
-        </h1>
-        <nav aria-label="breadcrumb ">
-          <ul className="breadcrumb wow fadeInUp" data-wow-delay=".6s">
-            <li className="breadcrumb-item">
-              <Link className="breadcrumb-link" href="#0">
-                <i className="bi bi-house icon " />
-                home
-              </Link>
-            </li>
-            <li className="breadcrumb-item active">blog</li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </section>
-  {/* End inner Page hero*/}
-  {/* Start _2-col-left-sidebar*/}
-  <section className="blog blog-home mega-section">
-    <div className="container ">
-      <div className="row ">
-        <div className="col-12 col-lg-8 ">
-          <div className="posts-grid">
-            <div className="row">
-              <div className="col-12 col-lg-6  ">
-                <div className="post-box">
-                  {" "}
-                  <Link
-                    className="post-link"
-                    href="post-single.html"
-                    title="How litespeed technology works to speed up your site "
-                  >
-                    <div className="post-img-wrapper  ">
-                      <img
-                        className=" parallax-img   post-img"
-                        loading="lazy"
-                        src="assets/images/blog/post-images/1.jpg"
-                        alt=""
-                      />
-                      <span className="post-date">
-                        <span className="day">05 </span>oct 2022{" "}
-                      </span>
-                    </div>
+      <section
+        className="d-flex align-items-center page-hero  inner-page-hero "
+        id="page-hero"
+      >
+        <div
+          className="overlay-photo-image-bg parallax"
+          data-bg-img="assets/images/hero/inner-page-hero.jpg"
+          data-bg-opacity={1}
+          style={{
+            backgroundImage: "url('/assets/images/hero/inner-page-hero.jpg')",
+          }}
+        />
+        <div className="overlay-color" data-bg-opacity=".75" />
+        <div className="container">
+          <div className="hero-text-area centerd">
+            <h1 className="hero-title  wow fadeInUp" data-wow-delay=".2s">
+              Blog
+            </h1>
+            <nav aria-label="breadcrumb ">
+              <ul className="breadcrumb wow fadeInUp" data-wow-delay=".6s">
+                <li className="breadcrumb-item">
+                  <Link className="breadcrumb-link" href="#0">
+                    <i className="bi bi-house icon " />
+                    home
                   </Link>
-                  <div className="post-summary">
-                    <div className="post-info">
-                      <Link className="info post-cat" href="#">
-                        {" "}
-                        <i className="bi bi-bookmark icon" />
-                        hosting
-                      </Link>
-                      <Link className="info post-author" href="#">
-                        {" "}
-                        <i className=" bi bi-person icon" />
-                        Allan Moore
-                      </Link>
-                    </div>
-                    <div className="post-text">
-                      <Link className="post-link" href="post-single.html">
-                        <h2 className="post-title">
-                          {" "}
-                          How litespeed technology works to speed up your site{" "}
-                        </h2>
-                      </Link>
-                      <p className="post-excerpt">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit.Iure nulla dolorem, voluptates molestiae
-                      </p>
-                      <Link
-                        className="read-more"
-                        href="post-single.html"
-                        title="How litespeed technology works to speed up your site "
-                      >
-                        read more
-                        <i className="bi bi-arrow-right icon " />
-                      </Link>
-                    </div>
-                  </div>
+                </li>
+                <li className="breadcrumb-item active">blog</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </section>
+      {/* End inner Page hero*/}
+      {/* Start _2-col-left-sidebar*/}
+      <section className="blog blog-home mega-section">
+        <div className="container ">
+          <div className="row ">
+            <div className="col-12 col-lg-8 ">
+              <div className="posts-grid">
+                <div className="row">
+                  {blogs?.map((blog) => {
+                    const excerpt = generateExcerpt(blog.content)
+                    const { day, month, year } = formatDate(blog.created_at);
+                    return (
+                      <div className="col-12 col-lg-6" key={blog.id}>
+                        <div className="post-box">
+                          <Link
+                            className="post-link"
+                            href={`/blog/${blog.slug}`}
+                            title={blog.title}
+                          >
+                            <div className="post-img-wrapper">
+                              <img
+                                className="parallax-img post-img"
+                                loading="lazy"
+                                src={blog.imagepath || '/assets/images/blog/post-images/default.jpg'}
+                                alt={blog.title}
+                              />
+                              <span className="post-date">
+                                <span className="day">{day}{' '}</span>
+                                {month} {year}
+                              </span>
+                            </div>
+                          </Link>
+                          <div className="post-summary">
+                            <div className="post-info">
+                              {blog.blog_type_id && (
+                                <Link className="info post-cat" href={`/blog/category/${blog.blog_type_id.name}`}>
+                                  <i className="bi bi-bookmark icon" />
+                                  {blog.blog_type_id.name}
+                                </Link>
+                              )}
+                              {true && (
+                                <Link className="info post-author" href="#">
+                                  <i className="bi bi-person icon" />
+                                  RNDWebTech
+                                </Link>
+                              )}
+                            </div>
+                            <div className="post-text">
+                              <Link className="post-link" href={`/blog/${blog.slug}`}>
+                                <h2 className="post-title">{blog.title}</h2>
+                              </Link>
+                              <p className="post-excerpt">
+                                {excerpt}
+                              </p>
+                              <Link
+                                className="read-more"
+                                href={`/blog/${blog.slug}`}
+                                title={blog.title}
+                              >
+                                read more
+                                <i className="bi bi-arrow-right icon" />
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}     
                 </div>
               </div>
-              <div className="col-12 col-lg-6 ">
-                <div className="post-box">
-                  {" "}
-                  <Link
-                    className="post-link"
-                    href="post-single.html"
-                    title="give your website a new look and feel with themes"
-                  >
-                    <div className="post-img-wrapper  ">
-                      <img
-                        className=" parallax-img   post-img"
-                        loading="lazy"
-                        src="assets/images/blog/post-images/2.jpg"
-                        alt=""
-                      />
-                      <span className="post-date">
-                        <span className="day">15 </span>sep 2022{" "}
-                      </span>
-                    </div>
-                  </Link>
-                  <div className="post-summary">
-                    <div className="post-info">
-                      <Link className="info post-cat" href="#">
-                        {" "}
-                        <i className="bi bi-bookmark icon" />
-                        web dev
-                      </Link>
-                      <Link className="info post-author" href="#">
-                        {" "}
-                        <i className=" bi bi-person icon" />
-                        mhmd amin
-                      </Link>
-                    </div>
-                    <div className="post-text">
-                      <Link className="post-link" href="post-single.html">
-                        <h2 className="post-title">
-                          {" "}
-                          give your website a new look and feel with themes
-                        </h2>
-                      </Link>
-                      <p className="post-excerpt">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit.Iure nulla dolorem, voluptates molestiae
-                      </p>
-                      <Link
-                        className="read-more"
-                        href="post-single.html"
-                        title="give your website a new look and feel with themes"
-                      >
-                        read more
-                        <i className="bi bi-arrow-right icon " />
-                      </Link>
-                    </div>
-                  </div>
+            </div>
+            <div className="col-12 col-lg-4">
+              <div className="blog-sidebar">
+                {/*search box*/}
+                <div className="search sidebar-box">
+                  <form className="search-form" action="#">
+                    <input
+                      className="search-input"
+                      type="search"
+                      name="seach_form"
+                      placeholder="Search Posts..."
+                    />
+                    <button className="search-btn" type="submit">
+                      <i className="bi bi-search icon" />
+                    </button>
+                  </form>
                 </div>
-              </div>
-              <div className="col-12 col-lg-6 ">
-                <div className="post-box">
-                  {" "}
-                  <Link
-                    className="post-link"
-                    href="post-single.html"
-                    title="the role of domain names in SEO world explained "
-                  >
-                    <div className="post-img-wrapper  ">
-                      <img
-                        className=" parallax-img   post-img"
-                        loading="lazy"
-                        src="assets/images/blog/post-images/3.jpg"
-                        alt=""
-                      />
-                      <span className="post-date">
-                        <span className="day">27 </span>aug 2022{" "}
-                      </span>
-                    </div>
-                  </Link>
-                  <div className="post-summary">
-                    <div className="post-info">
-                      <Link className="info post-cat" href="#">
-                        {" "}
-                        <i className="bi bi-bookmark icon" />
-                        SEO
-                      </Link>
-                      <Link className="info post-author" href="#">
-                        {" "}
-                        <i className=" bi bi-person icon" />
-                        yusuf amin
-                      </Link>
-                    </div>
-                    <div className="post-text">
-                      <Link className="post-link" href="post-single.html">
-                        <h2 className="post-title">
-                          {" "}
-                          the role of domain names in SEO world explained{" "}
-                        </h2>
-                      </Link>
-                      <p className="post-excerpt">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit.Iure nulla dolorem, voluptates molestiae
-                      </p>
-                      <Link
-                        className="read-more"
-                        href="post-single.html"
-                        title="the role of domain names in SEO world explained "
-                      >
-                        read more
-                        <i className="bi bi-arrow-right icon " />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-lg-6 ">
-                <div className="post-box">
-                  {" "}
-                  <Link
-                    className="post-link"
-                    href="post-single.html"
-                    title="we are able to building your dream website"
-                  >
-                    <div className="post-img-wrapper  ">
-                      <img
-                        className=" parallax-img   post-img"
-                        loading="lazy"
-                        src="assets/images/blog/post-images/4.jpg"
-                        alt=""
-                      />
-                      <span className="post-date">
-                        <span className="day">15 </span>aug 2022{" "}
-                      </span>
-                    </div>
-                  </Link>
-                  <div className="post-summary">
-                    <div className="post-info">
-                      <Link className="info post-cat" href="#">
-                        {" "}
-                        <i className="bi bi-bookmark icon" />
-                        design
-                      </Link>
-                      <Link className="info post-author" href="#">
-                        {" "}
-                        <i className=" bi bi-person icon" />
-                        mhmd amin
-                      </Link>
-                    </div>
-                    <div className="post-text">
-                      <Link className="post-link" href="post-single.html">
-                        <h2 className="post-title">
-                          {" "}
-                          we are able to building your dream website
-                        </h2>
-                      </Link>
-                      <p className="post-excerpt">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit.Iure nulla dolorem, voluptates molestiae
-                      </p>
-                      <Link
-                        className="read-more"
-                        href="post-single.html"
-                        title="we are able to building your dream website"
-                      >
-                        read more
-                        <i className="bi bi-arrow-right icon " />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-lg-6 ">
-                <div className="post-box">
-                  {" "}
-                  <Link
-                    className="post-link"
-                    href="post-single.html"
-                    title="data analysis and the big impact on industry"
-                  >
-                    <div className="post-img-wrapper  ">
-                      <img
-                        className=" parallax-img   post-img"
-                        loading="lazy"
-                        src="assets/images/blog/post-images/5.jpg"
-                        alt=""
-                      />
-                      <span className="post-date">
-                        <span className="day">02 </span>aug 2022{" "}
-                      </span>
-                    </div>
-                  </Link>
-                  <div className="post-summary">
-                    <div className="post-info">
-                      <Link className="info post-cat" href="#">
-                        {" "}
-                        <i className="bi bi-bookmark icon" />
-                        features
-                      </Link>
-                      <Link className="info post-author" href="#">
-                        {" "}
-                        <i className=" bi bi-person icon" />
-                        fairouz amin
-                      </Link>
-                    </div>
-                    <div className="post-text">
-                      <Link className="post-link" href="post-single.html">
-                        <h2 className="post-title">
-                          {" "}
-                          data analysis and the big impact on industry
-                        </h2>
-                      </Link>
-                      <p className="post-excerpt">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit.Iure nulla dolorem, voluptates molestiae
-                      </p>
-                      <Link
-                        className="read-more"
-                        href="post-single.html"
-                        title="data analysis and the big impact on industry"
-                      >
-                        read more
-                        <i className="bi bi-arrow-right icon " />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-lg-6 ">
-                <div className="post-box">
-                  {" "}
-                  <Link
-                    className="post-link"
-                    href="post-single.html"
-                    title="helping others can boost you happiness"
-                  >
-                    <div className="post-img-wrapper  ">
-                      <img
-                        className=" parallax-img   post-img"
-                        loading="lazy"
-                        src="assets/images/blog/post-images/6.jpg"
-                        alt=""
-                      />
-                      <span className="post-date">
-                        <span className="day">21 </span>jul 2022{" "}
-                      </span>
-                    </div>
-                  </Link>
-                  <div className="post-summary">
-                    <div className="post-info">
-                      <Link className="info post-cat" href="#">
-                        {" "}
-                        <i className="bi bi-bookmark icon" />
-                        cloud
-                      </Link>
-                      <Link className="info post-author" href="#">
-                        {" "}
-                        <i className=" bi bi-person icon" />
-                        yusuf amin
-                      </Link>
-                    </div>
-                    <div className="post-text">
-                      <Link className="post-link" href="post-single.html">
-                        <h2 className="post-title">
-                          {" "}
-                          helping others can boost you happiness
-                        </h2>
-                      </Link>
-                      <p className="post-excerpt">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit.Iure nulla dolorem, voluptates molestiae
-                      </p>
-                      <Link
-                        className="read-more"
-                        href="post-single.html"
-                        title="helping others can boost you happiness"
-                      >
-                        read more
-                        <i className="bi bi-arrow-right icon " />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-12">
-                {/*Start pagination*/}
-                <nav className="ma-pagination">
-                  <ul className="pagination justify-content-center">
-                    <li className="ma-page-item deactive-page-item">
-                      <Link
-                        className="ma-page-link "
-                        href="#"
-                        title="Previous Page"
-                      >
-                        <i className="bi bi-chevron-left icon " />
-                      </Link>
-                    </li>
-                    <li className="ma-page-item active">
-                      <Link className="ma-page-link " href="#">
-                        1{" "}
-                      </Link>
-                    </li>
-                    <li className="ma-page-item  ">
-                      <Link className="ma-page-link " href="#">
-                        2{" "}
-                      </Link>
-                    </li>
-                    <li className="ma-page-item  ">
-                      <Link className="ma-page-link " href="#">
-                        3{" "}
-                      </Link>
-                    </li>
-                    <li className="ma-page-item  ">
-                      <Link className="ma-page-link " href="#">
-                        4{" "}
-                      </Link>
-                    </li>
-                    <li className="ma-page-item  ">
-                      <Link className="ma-page-link " href="#">
-                        5{" "}
-                      </Link>
-                    </li>
-                    <li className="ma-page-item  ">
-                      <Link className="ma-page-link " href="#">
-                        6{" "}
-                      </Link>
-                    </li>
-                    <li className="ma-page-item">
-                      <Link className="ma-page-link" href="#" title="Next Page">
-                        <i className="bi bi-chevron-right icon " />
-                      </Link>
-                    </li>
+                {/*categories box*/}
+                <div className="cats sidebar-box">
+                  <h6 className="sidebar-box-title"><span style={{color:"#09aff4"}}>#{' '}</span>Categories:</h6>
+                  <ul className="sidebar-list cats-list" style={{listStyle:"disclosure-closed"}}>
+                    {data.map((category) => (
+                      <>
+                      <li className="cat-item" key={category.id}>
+                        <Link 
+                          className="cat-link" 
+                          href={`/blog/category/${category.name}`}
+                        >
+                          {category.name}
+                          <span className="cat-count">{category.blogs[0].count}</span>
+                        </Link>
+                      </li>
+                      </>
+                    ))}
                   </ul>
-                </nav>
+                </div>
+                
+                {/*Recent posts  */}
+               <div className="recent-posts sidebar-box">
+                  <h6 className="sidebar-box-title">
+                    <span style={{color: "#09aff4"}}>#{' '}</span>recent posts:
+                  </h6>
+                  <ul className="sidebar-list r-posts-list">
+                    {blogs.slice(0, 4).map((blog) => {
+                      const { day, month, year } = formatDate(blog.created_at);
+                      return (
+                        <li 
+                          className="r-post-item" 
+                          key={blog.id}
+                          style={{borderRadius: "10px"}}
+                        >
+                          <Link 
+                            className="r-post-link" 
+                            href={`/blog/${blog.slug}`}
+                          >
+                            <div 
+                              className="r-post-img-wrapper" 
+                              style={{margin: "1rem !important"}}
+                            >
+                              <img
+                                className="r-post-img"
+                                loading="lazy"
+                                src={blog.imagepath || '/assets/images/blog/recent-posts/default.jpg'}
+                                alt={blog.title}
+                              />
+                            </div>
+                            <div className="content">
+                              <h6 className="r-post-title">
+                                {blog.title}
+                              </h6>
+                              <span className="r-post-date">
+                                {`${month.toLowerCase()}, ${day} ${year}`}
+                              </span>
+                            </div>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+                
+                <div className="follow-us sidebar-box">
+                  <h6 className="sidebar-box-title">follow us on:</h6>
+                  <div className="sc-wrapper dir-row sc-size-32">
+                    <ul className="sc-list">
+                      <li className="sc-item " title="Facebook">
+                        <Link
+                          className="sc-link"
+                          href="#0"
+                          title="social media icon"
+                        >
+                          <i className="fab fa-facebook-f sc-icon" />
+                        </Link>
+                      </li>
+                      <li className="sc-item " title="youtube">
+                        <Link
+                          className="sc-link"
+                          href="#0"
+                          title="social media icon"
+                        >
+                          <i className="fab fa-youtube sc-icon" />
+                        </Link>
+                      </li>
+                      <li className="sc-item " title="instagram">
+                        <Link
+                          className="sc-link"
+                          href="#0"
+                          title="social media icon"
+                        >
+                          <i className="fab fa-instagram sc-icon" />
+                        </Link>
+                      </li>
+                      <li className="sc-item " title="X">
+                        <Link
+                          className="sc-link"
+                          href="#0"
+                          title="social media icon"
+                        >
+                          <i className="fab fa-x-twitter sc-icon" />
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-12 col-lg-4">
-          <div className="blog-sidebar">
-            {/*search box*/}
-            <div className="search sidebar-box">
-              <form className="search-form" action="#">
-                <input
-                  className="search-input"
-                  type="search"
-                  name="seach_form"
-                  placeholder="Search Posts..."
-                />
-                <button className="search-btn" type="submit">
-                  <i className="bi bi-search icon" />
-                </button>
-              </form>
-            </div>
-            {/*categories box*/}
-            <div className="cats sidebar-box">
-              <h6 className="sidebar-box-title">Categories:</h6>
-              <ul className="sidebar-list cats-list  ">
-                <li className="cat-item">
-                  <Link className="cat-link" href="#">
-                    data<span className="cat-count">17</span>
-                  </Link>
-                </li>
-                <li className="cat-item">
-                  <Link className="cat-link" href="#">
-                    web dev <span className="cat-count">25</span>
-                  </Link>
-                </li>
-                <li className="cat-item">
-                  <Link className="cat-link" href="#">
-                    hosting<span className="cat-count">14</span>
-                  </Link>
-                </li>
-                <li className="cat-item">
-                  <Link className="cat-link" href="#">
-                    domain names<span className="cat-count">73</span>
-                  </Link>
-                </li>
-                <li className="cat-item">
-                  <Link className="cat-link" href="#">
-                    apps<span className="cat-count">36</span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            {/*Recent posts  */}
-            <div className="recent-posts sidebar-box">
-              <h6 className="sidebar-box-title">recent posts: </h6>
-              <ul className="sidebar-list r-posts-list ">
-                <li className="r-post-item">
-                  <Link className="r-post-link" href="#">
-                    <div className="r-post-img-wrapper">
-                      <img
-                        className="r-post-img"
-                        loading="lazy"
-                        src="assets/images/blog/recent-posts/1.jpg"
-                        alt="recent post image"
-                      />
-                    </div>
-                    <div className="content">
-                      <h6 className="r-post-title">
-                        this is the article title
-                      </h6>
-                      <span className="r-post-date">jun, 15 2022 </span>
-                    </div>
-                  </Link>
-                </li>
-                <li className="r-post-item">
-                  <Link className="r-post-link" href="#">
-                    <div className="r-post-img-wrapper">
-                      <img
-                        className="r-post-img"
-                        loading="lazy"
-                        src="assets/images/blog/recent-posts/2.jpg"
-                        alt="recent post image"
-                      />
-                    </div>
-                    <div className="content">
-                      <h6 className="r-post-title">
-                        this is the article title
-                      </h6>
-                      <span className="r-post-date">may, 10 2022 </span>
-                    </div>
-                  </Link>
-                </li>
-                <li className="r-post-item">
-                  <Link className="r-post-link" href="#">
-                    <div className="r-post-img-wrapper">
-                      <img
-                        className="r-post-img"
-                        loading="lazy"
-                        src="assets/images/blog/recent-posts/3.jpg"
-                        alt="recent post image"
-                      />
-                    </div>
-                    <div className="content">
-                      <h6 className="r-post-title">
-                        this is the article title
-                      </h6>
-                      <span className="r-post-date">feb, 28 2022 </span>
-                    </div>
-                  </Link>
-                </li>
-                <li className="r-post-item">
-                  <Link className="r-post-link" href="#">
-                    <div className="r-post-img-wrapper">
-                      <img
-                        className="r-post-img"
-                        loading="lazy"
-                        src="assets/images/blog/recent-posts/4.jpg"
-                        alt="recent post image"
-                      />
-                    </div>
-                    <div className="content">
-                      <h6 className="r-post-title">
-                        this is the article title
-                      </h6>
-                      <span className="r-post-date">jun, 07 2022 </span>
-                    </div>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="tags sidebar-box">
-              <h6 className="sidebar-box-title">tags:</h6>
-              <ul className="sidebar-list tags-list ">
-                <li className="tag-item">
-                  <Link className="tag-link" href="#">
-                    wordpress
-                  </Link>
-                </li>
-                <li className="tag-item">
-                  <Link className="tag-link" href="#">
-                    data analysis
-                  </Link>
-                </li>
-                <li className="tag-item">
-                  <Link className="tag-link" href="#">
-                    hosting
-                  </Link>
-                </li>
-                <li className="tag-item">
-                  <Link className="tag-link" href="#">
-                    design
-                  </Link>
-                </li>
-                <li className="tag-item">
-                  <Link className="tag-link" href="#">
-                    developing
-                  </Link>
-                </li>
-                <li className="tag-item">
-                  <Link className="tag-link" href="#">
-                    consulting
-                  </Link>
-                </li>
-                <li className="tag-item">
-                  <Link className="tag-link" href="#">
-                    design
-                  </Link>
-                </li>
-                <li className="tag-item">
-                  <Link className="tag-link" href="#">
-                    concept
-                  </Link>
-                </li>
-                <li className="tag-item">
-                  <Link className="tag-link" href="#">
-                    features
-                  </Link>
-                </li>
-                <li className="tag-item">
-                  <Link className="tag-link" href="#">
-                    services
-                  </Link>
-                </li>
-                <li className="tag-item">
-                  <Link className="tag-link" href="#">
-                    portfolio
-                  </Link>
-                </li>
-                <li className="tag-item">
-                  <Link className="tag-link" href="#">
-                    testmonials
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="follow-us sidebar-box">
-              <h6 className="sidebar-box-title">follow us on:</h6>
-              <div className="sc-wrapper dir-row sc-size-32">
-                <ul className="sc-list">
-                  <li className="sc-item " title="Facebook">
-                    <Link className="sc-link" href="#0" title="social media icon">
-                      <i className="fab fa-facebook-f sc-icon" />
-                    </Link>
-                  </li>
-                  <li className="sc-item " title="youtube">
-                    <Link className="sc-link" href="#0" title="social media icon">
-                      <i className="fab fa-youtube sc-icon" />
-                    </Link>
-                  </li>
-                  <li className="sc-item " title="instagram">
-                    <Link className="sc-link" href="#0" title="social media icon">
-                      <i className="fab fa-instagram sc-icon" />
-                    </Link>
-                  </li>
-                  <li className="sc-item " title="X">
-                    <Link className="sc-link" href="#0" title="social media icon">
-                      <i className="fab fa-x-twitter sc-icon" />
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  {/* End _2-col-left-sidebar*/}
+      </section>
+      {/* End _2-col-left-sidebar*/}
 
       {/* Start  page-footer Section*/}
-      <Footer/>
+      <Footer />
       {/* End  page-footer Section*/}
-      
+
       {/* Start loading-screen Component*/}
       <div className="loading-screen" id="loading-screen">
         <span className="bar top-bar" />
@@ -683,7 +324,6 @@ export default function Page() {
         <i className="bi bi-arrow-up icon " />
       </div>
       {/* End back-to-top Button*/}
-      
     </>
   );
 }

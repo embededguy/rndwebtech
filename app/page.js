@@ -651,49 +651,49 @@ export default function Home() {
           </div>
           <div className="containerx">
             <div className="cardx">
-              <div className="icon">
+              <div className="iconx">
                 <i className="fas fa-heartbeat" />
               </div>
               <div className="title">Healthcare &amp; Fitness</div>
             </div>
             <div className="cardx">
-              <div className="icon">
+              <div className="iconx">
                 <i className="fas fa-industry" />
               </div>
               <div className="title">Manufacturing &amp; Automobile Industry</div>
             </div>
             <div className="cardx">
-              <div className="icon">
+              <div className="iconx">
                 <i className="fas fa-shopping-cart" />
               </div>
               <div className="title">E-commerce &amp; Retail</div>
             </div>
             <div className="cardx">
-              <div className="icon">
+              <div className="iconx">
                 <i className="fas fa-book-open" />
               </div>
               <div className="title">Education and E-Learning</div>
             </div>
             <div className="cardx">
-              <div className="icon">
+              <div className="iconx">
                 <i className="fas fa-university" />
               </div>
               <div className="title">Banking &amp; Finance</div>
             </div>
             <div className="cardx">
-              <div className="icon">
+              <div className="iconx">
                 <i className="fas fa-newspaper" />
               </div>
               <div className="title">News &amp; Publication</div>
             </div>
             <div className="cardx">
-              <div className="icon">
+              <div className="iconx">
                 <i className="fas fa-shipping-fast" />
               </div>
               <div className="title">Supplychain &amp; Logistics</div>
             </div>
             <div className="cardx">
-              <div className="icon">
+              <div className="iconx">
                 <i className="fas fa-utensils" />
               </div>
               <div className="title">Food &amp; Beverages</div>
