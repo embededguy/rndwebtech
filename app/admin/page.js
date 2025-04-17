@@ -27,7 +27,9 @@ export default async function Page({children}) {
   }
 
   const { count, error2 } = await supabase.from('blogs').select('*', { count: 'exact', head: true }) // head:true avoids fetching data
-  const { blogTypeCount, error3 } = await supabase.from('blog_types').select('*', { count: 'exact', head: true }) // head:true avoids fetching data
+  const { count:blogTypeCount, error3 } = await supabase.from('blog_types').select('*', { count: 'exact', head: true }) // head:true avoids fetching data
+  const { count:adminCount, error4 } = await supabase.from('admins').select('*', { count: 'exact', head: true }) // head:true avoids fetching data
+  const { count:subCount, error5 } = await supabase.from('subscribers').select('*', { count: 'exact', head: true }) // head:true avoids fetching data
 
 
   const currentYear = new Date().getFullYear();
@@ -62,7 +64,7 @@ export default async function Page({children}) {
                   <div className="row align-items-center">
                     <div className="col">
                       <span className="h2 mb-0" style={{fontWeight:"500"}}>
-                        {0}
+                        {adminCount}
                       </span>
                       <p className="small text-muted mb-0">Admins</p>
                       <span className="badge badge-pill badge-primary">
@@ -108,9 +110,32 @@ export default async function Page({children}) {
                   <div className="row align-items-center">
                     <div className="col">
                       <span className="h2 mb-4"  style={{fontWeight:"500"}}>
-                        {0}
+                        {blogTypeCount}
                       </span>
                       <p className="small text-muted mb-0">Total Blog Type</p>
+                      <span className="badge badge-pill badge-primary">
+                        <span
+                          className="fe fe-16 fe-bar-chart-2 text-muted mb-0"
+                          style={{ color: "black !important" }}
+                        />
+                      </span>
+                    </div>
+                    <div className="col-auto">
+                      <span className="fe fe-32 fe-shopping-bag text-muted mb-0" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-3 mb-4">
+              <div className="card shadow">
+                <div className="card-body">
+                  <div className="row align-items-center">
+                    <div className="col">
+                      <span className="h2 mb-4" style={{fontWeight:"500"}}>
+                        {subCount}
+                      </span>
+                      <p className="small text-muted mb-0">Subscribers</p>
                       <span className="badge badge-pill badge-primary">
                         <span
                           className="fe fe-16 fe-bar-chart-2 text-muted mb-0"

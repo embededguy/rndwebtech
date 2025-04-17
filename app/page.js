@@ -649,40 +649,59 @@ export default function Home() {
               
             </div>
           </div>
-          <div class="containerx">
-            <div class="card">
-              <div class="icon"><i class="fas fa-heartbeat"></i></div>
-              <div class="title">Healthcare & Fitness</div>
+          <div className="containerx">
+            <div className="cardx">
+              <div className="icon">
+                <i className="fas fa-heartbeat" />
+              </div>
+              <div className="title">Healthcare &amp; Fitness</div>
             </div>
-            <div class="card">
-              <div class="icon"><i class="fas fa-industry"></i></div>
-              <div class="title">Manufacturing & Automobile Industry</div>
+            <div className="cardx">
+              <div className="icon">
+                <i className="fas fa-industry" />
+              </div>
+              <div className="title">Manufacturing &amp; Automobile Industry</div>
             </div>
-            <div class="card">
-              <div class="icon"><i class="fas fa-shopping-cart"></i></div>
-              <div class="title">E-commerce & Retail</div>
+            <div className="cardx">
+              <div className="icon">
+                <i className="fas fa-shopping-cart" />
+              </div>
+              <div className="title">E-commerce &amp; Retail</div>
             </div>
-            <div class="card">
-              <div class="icon"><i class="fas fa-book-open"></i></div>
-              <div class="title">Education and E-Learning</div>
+            <div className="cardx">
+              <div className="icon">
+                <i className="fas fa-book-open" />
+              </div>
+              <div className="title">Education and E-Learning</div>
             </div>
-            <div class="card">
-              <div class="icon"><i class="fas fa-university"></i></div>
-              <div class="title">Banking & Finance</div>
+            <div className="cardx">
+              <div className="icon">
+                <i className="fas fa-university" />
+              </div>
+              <div className="title">Banking &amp; Finance</div>
             </div>
-            <div class="card">
-              <div class="icon"><i class="fas fa-newspaper"></i></div>
-              <div class="title">News & Publication</div>
+            <div className="cardx">
+              <div className="icon">
+                <i className="fas fa-newspaper" />
+              </div>
+              <div className="title">News &amp; Publication</div>
             </div>
-            <div class="card">
-              <div class="icon"><i class="fas fa-shipping-fast"></i></div>
-              <div class="title">Supplychain & Logistics</div>
+            <div className="cardx">
+              <div className="icon">
+                <i className="fas fa-shipping-fast" />
+              </div>
+              <div className="title">Supplychain &amp; Logistics</div>
             </div>
-            <div class="card">
-              <div class="icon"><i class="fas fa-utensils"></i></div>
-              <div class="title">Food & Beverages</div>
+            <div className="cardx">
+              <div className="icon">
+                <i className="fas fa-utensils" />
+              </div>
+              <div className="title">Food &amp; Beverages</div>
             </div>
           </div>
+
+
+
         </div>
       </section>
 

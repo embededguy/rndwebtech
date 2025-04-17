@@ -102,64 +102,54 @@ export default function Sidebar() {
       </p>
       <ul className="navbar-nav flex-fill w-100 mb-2">
         <li className="nav-item dropdown">
-          <a
-            href="#blog"
-            data-toggle="collapse"
-            aria-expanded="false"
-            className="dropdown-toggle nav-link"
-          >
-            <i className="fe fe-file-text fe-16" />
-            <span className="ml-3 item-text">Blog</span>
+          <a href="/admin/blog/add" aria-expanded="false" className="nav-link">
+            <i className="fe fe-edit-3 fe-16" />
+            <span className="ml-3 item-text">Add Blog</span>
             <span className="sr-only">(current)</span>
           </a>
-          <ul className="collapse list-unstyled pl-4 w-100" id="blog">
-            <li className="nav-item sauth">
-              <a className="nav-link pl-3" href="/admin/blog/add">
-                <span className="ml-1 item-text">Add Blog</span>
-              </a>
-            </li>
-            <li className="nav-item sauth">
-              <a className="nav-link pl-3" href="/admin/blog-type/add">
-                <span className="ml-1 item-text">Add Blog Type</span>
-              </a>
-            </li>
-            <li className="nav-item sauth">
-              <a className="nav-link pl-3" href="/admin/blog/list">
-                <span className="ml-1 item-text">List Blogs</span>
-              </a>
-            </li>
-            <li className="nav-item sauth">
-              <a className="nav-link pl-3" href="/admin/blog-type/list">
-                <span className="ml-1 item-text">List Blogs Types</span>
-              </a>
-            </li>
-          </ul>
         </li>
       </ul>
+      <ul className="navbar-nav flex-fill w-100 mb-2">
+        <li className="nav-item dropdown">
+          <a href="/admin/blog-type/add" aria-expanded="false" className="nav-link">
+            <i className="fe fe-edit-3 fe-16" />
+            <span className="ml-3 item-text">Add Blog Type</span>
+            <span className="sr-only">(current)</span>
+          </a>
+        </li>
+      </ul>
+      <ul className="navbar-nav flex-fill w-100 mb-2">
+        <li className="nav-item dropdown">
+          <a href="/admin/blog/list" aria-expanded="false" className="nav-link">
+            <i className="fe fe-file-text fe-16" />
+            <span className="ml-3 item-text">List Blog</span>
+            <span className="sr-only">(current)</span>
+          </a>
+        </li>
+      </ul>
+      <ul className="navbar-nav flex-fill w-100 mb-2">
+        <li className="nav-item dropdown">
+          <a href="/admin/blog-type/list" aria-expanded="false" className="nav-link">
+            <i className="fe fe-file-text fe-16" />
+            <span className="ml-3 item-text">List Blog Type</span>
+            <span className="sr-only">(current)</span>
+          </a>
+        </li>
+      </ul>
+      
       <p className="text-muted nav-heading mt-4 mb-1" id="h-blog">
         <span>Subscribers &amp; Contact</span>
       </p>
       <ul className="navbar-nav flex-fill w-100 mb-2">
         <li className="nav-item dropdown">
-          <a
-            href="#traffic"
-            data-toggle="collapse"
-            aria-expanded="false"
-            className="dropdown-toggle nav-link"
-          >
+          <a href="/admin/subscribers/list" aria-expanded="false" className="nav-link">
             <i className="fe fe-bar-chart-2 fe-16" />
             <span className="ml-3 item-text">Subscribers</span>
             <span className="sr-only">(current)</span>
           </a>
-          <ul className="collapse list-unstyled pl-4 w-100" id="traffic">
-            <li className="nav-item sauth">
-              <a className="nav-link pl-3" href="/admin/subscribers/list">
-                <span className="ml-1 item-text">List Subscribers</span>
-              </a>
-            </li>
-          </ul>
         </li>
       </ul>
+
       <div className="btn-box w-100 mt-4 mb-1">
         <a
           onClick={logout}
@@ -167,7 +157,7 @@ export default function Sidebar() {
           className="btn mb-2 btn-danger btn-lg btn-block"
         >
           <i className="fe fe-log-out fe-12 mx-2" />
-          <span className="small text-white">Log Out</span>
+          <span className="small text-white" style={{color:"white"}}>Log Out</span>
         </a>
       </div>
     </nav>

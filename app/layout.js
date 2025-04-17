@@ -35,9 +35,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         
-        {/*<Script src="/admin-js/bootstrap.min.js" strategy="beforeInteractive"/>*/}
-        {<Script src="/admin-js/jquery.min.js" strategy="beforeInteractive"/>}
-        {/*<Script src="/admin-js/config.js" strategy="beforeInteractive"/>*/}
+        <Script src="/admin-js/jquery.min.js" strategy="beforeInteractive"/>
+        <Script src="/admin-js/config.js" strategy="beforeInteractive"/>
 
         
         <Script src="/js/vendors/wow.min.js" strategy="beforeInteractive"/>
@@ -52,6 +51,7 @@ export default function RootLayout({ children }) {
         
         <Script src="/js/vendors/jquery-3.6.1.min.js" strategy="beforeInteractive"/>
 
+        <Script src="/admin-js/bootstrap.min.js" strategy="beforeInteractive"/>
         <Script src="/js/vendors/bootstrap.bundle.min.js" strategy="beforeInteractive"/>
         <Script src="/admin-js/apps.js" />
         <Script src="/js/main.js" />
