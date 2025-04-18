@@ -625,7 +625,7 @@ export default function Home() {
         </div>
       </section>
       {/* End  stats Section*/}
-      <section>
+      <section className="stats">
         <div className="gradient-background">
           <div className="gradient-sphere sphere-2" />
           <div className="gradient-sphere sphere-3" />
@@ -641,7 +641,7 @@ export default function Home() {
               >
                 Industries
               </span>
-              <h2 className=" title    wow fadeInUp" data-wow-delay=".4s">
+              <h2 className=" title    wow fadeInUp" data-wow-delay=".4s" style={{color:"white !important"}}>
                 Industries <span className="hollow-text">We Serve</span>
               </h2>
             </div>

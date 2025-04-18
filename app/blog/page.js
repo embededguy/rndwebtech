@@ -95,10 +95,10 @@ const allTags = blogs.flatMap(blog => {
             <nav aria-label="breadcrumb ">
               <ul className="breadcrumb wow fadeInUp" data-wow-delay=".6s">
                 <li className="breadcrumb-item">
-                  <Link className="breadcrumb-link" href="#0">
+                  <a className="breadcrumb-link" href="/home">
                     <i className="bi bi-house icon " />
                     home
-                  </Link>
+                  </a>
                 </li>
                 <li className="breadcrumb-item active">blog</li>
               </ul>
@@ -120,7 +120,7 @@ const allTags = blogs.flatMap(blog => {
                     return (
                       <div className="col-12 col-lg-6" key={blog.id}>
                         <div className="post-box">
-                          <Link
+                          <a
                             className="post-link"
                             href={`/blog/${blog.slug}`}
                             title={blog.title}
@@ -137,37 +137,37 @@ const allTags = blogs.flatMap(blog => {
                                 {month} {year}
                               </span>
                             </div>
-                          </Link>
+                          </a>
                           <div className="post-summary">
                             <div className="post-info">
                               {blog.blog_type_id && (
-                                <Link className="info post-cat" href={`/blog/category/${blog.blog_type_id.name}`}>
+                                <a className="info post-cat" href={`/blog/category/${blog.blog_type_id.name}`}>
                                   <i className="bi bi-bookmark icon" />
                                   {blog.blog_type_id.name}
-                                </Link>
+                                </a>
                               )}
                               {true && (
-                                <Link className="info post-author" href="#">
+                                <a className="info post-author" href="#">
                                   <i className="bi bi-person icon" />
                                   RNDWebTech
-                                </Link>
+                                </a>
                               )}
                             </div>
                             <div className="post-text">
-                              <Link className="post-link" href={`/blog/${blog.slug}`}>
+                              <a className="post-link" href={`/blog/${blog.slug}`}>
                                 <h2 className="post-title">{blog.title}</h2>
-                              </Link>
+                              </a>
                               <p className="post-excerpt">
                                 {excerpt}
                               </p>
-                              <Link
+                              <a
                                 className="read-more"
                                 href={`/blog/${blog.slug}`}
                                 title={blog.title}
                               >
                                 read more
                                 <i className="bi bi-arrow-right icon" />
-                              </Link>
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -199,14 +199,14 @@ const allTags = blogs.flatMap(blog => {
                   <ul className="sidebar-list cats-list" style={{listStyle:"disclosure-closed"}}>
                     {data.map((category) => (
                       <>
-                      <li className="cat-item" key={category.id}>
-                        <Link 
+                      <li className="cat-item" key={category.name}>
+                        <a 
                           className="cat-link" 
                           href={`/blog/category/${category.name}`}
                         >
                           {category.name}
                           <span className="cat-count">{category.blogs[0].count}</span>
-                        </Link>
+                        </a>
                       </li>
                       </>
                     ))}
@@ -227,7 +227,7 @@ const allTags = blogs.flatMap(blog => {
                           key={blog.id}
                           style={{borderRadius: "10px"}}
                         >
-                          <Link 
+                          <a
                             className="r-post-link" 
                             href={`/blog/${blog.slug}`}
                           >
@@ -250,7 +250,7 @@ const allTags = blogs.flatMap(blog => {
                                 {`${month.toLowerCase()}, ${day} ${year}`}
                               </span>
                             </div>
-                          </Link>
+                          </a>
                         </li>
                       );
                     })}

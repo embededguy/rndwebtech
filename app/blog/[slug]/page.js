@@ -5,12 +5,15 @@ import Link from "next/link";
 import { createClient } from "@/utils/supabase/server";
 import { notFound } from 'next/navigation';
 
+import DOMPurify from 'isomorphic-dompurify';
+
 export async function generateMetadata({ params }) {
+  const paramsx = await params
   const supabase = await createClient();
   const { data: blog } = await supabase
     .from('blogs')
     .select('title, imagepath')
-    .eq('slug', params.slug)
+    .eq('slug', paramsx.slug)
     .single();
 
   return {
@@ -24,6 +27,7 @@ export async function generateMetadata({ params }) {
 
 
 export default async function Page({params}) {
+  const paramsx = await params
   const supabase = await createClient()
   const { data: blog } = await supabase
     .from('blogs')
@@ -40,7 +44,7 @@ export default async function Page({params}) {
         name
       )
     `)
-    .eq('slug', params.slug)
+    .eq('slug', paramsx.slug)
     .single();
 
   if (!blog) {
@@ -55,6 +59,18 @@ export default async function Page({params}) {
   };
   const { day, month, year } = formatDate(blog.created_at);
   
+  const cleanHtml = DOMPurify.sanitize(blog.content || '', {
+  ADD_TAGS: ['iframe'],
+  ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'scrolling'],
+  // Allow class attribute
+  ADD_ATTR: ['class'],
+});
+
+// Add classes to p tags
+const htmlWithClasses = cleanHtml.replace(/<p(>|\s)/g, '<p class="post-text"$1');
+
+const html2 = htmlWithClasses.replace(/<h3(>|\s)/g, '<h3 class="post-heading"$1');
+
   return (
     <>
       {/*Start Page Header*/}
@@ -111,138 +127,41 @@ export default async function Page({params}) {
           <div className="post-info">
             <a className="info post-cat" href="#">
               <i className="fas fa-list-alt icon" />
-              legal info
+              {blog.blog_type_id.name}
             </a>
             <a className="info post-author" href="#">
               <i className="fas fa-user icon" />
-              yusuf amin
+              RNDWebTech
             </a>
             <a className="info post-date" href="#">
               <i className="fas fa-history icon" />
-              21/12/2022
+              {day} {month} {year}
             </a>
-            <a className="info post-time" href="#">
-              <i className="fas fa-eye icon" />
-              1975
-            </a>
-            <a className="info post-comments-count" href="#">
-              <i className="fas fa-comments icon" />
-              23
-            </a>
+          
           </div>
-          <div className="post-content" dangerouslySetInnerHTML={{ __html: blog.content }}>
+          <div className="post-content" dangerouslySetInnerHTML={{ __html: html2 }}>
             
           </div>
           {/*tags panel*/}
-          <div className="tags panel">
-            <ul className="sidebar-list tags-list ">
-              <li className="tags-icon-label ">
-                <i className="fas fa-tags icon" />
-              </li>
-              <li className="tag-item">
-                <a className="tag-link" href="#">
-                  cloud
-                </a>
-              </li>
-              <li className="tag-item">
-                <a className="tag-link" href="#">
-                  hosting
-                </a>
-              </li>
-              <li className="tag-item">
-                <a className="tag-link" href="#">
-                  app dev
-                </a>
-              </li>
-              <li className="tag-item">
-                <a className="tag-link" href="#">
-                  design
-                </a>
-              </li>
-              <li className="tag-item">
-                <a className="tag-link" href="#">
-                  web{" "}
-                </a>
-              </li>
-              <li className="tag-item">
-                <a className="tag-link" href="#">
-                  data
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/*author profile panel*/}
-          <div className="author-profile panel">
-            <h6 className="panel-title">about author</h6>
-            <div className="author-info">
-              <div className="author-avatar">
-                <a className="author-link" href="#">
-                  <img
-                    className="avatar-img"
-                    loading="lazy"
-                    src="assets/images/blog/avatars/1.jpg"
-                    alt="author avatar"
-                  />
-                </a>
-              </div>
-              <div className="author-disc">
-                <h6 className="author-name">
-                  {" "}
-                  <a className="author-link" href="#">
-                    mohamed amin
-                  </a>
-                </h6>
-                <p className="author-bio">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-                  ex nulla magnam aliquam atque perspiciatis eos consequuntur
-                  aspernatur tempore, quasi ullam officiis modi nostrum
-                  molestiae ipsa mollitia excepturi sequi inventore.
-                </p>
-                <div className="sc-wrapper dir-row sc-size-32">
-                  <ul className="sc-list">
-                    <li className="sc-item " title="Facebook">
-                      <a
-                        className="sc-link"
-                        href="#0"
-                        title="social media icon"
-                      >
-                        <i className="fab fa-facebook-f sc-icon" />
-                      </a>
-                    </li>
-                    <li className="sc-item " title="youtube">
-                      <a
-                        className="sc-link"
-                        href="#0"
-                        title="social media icon"
-                      >
-                        <i className="fab fa-youtube sc-icon" />
-                      </a>
-                    </li>
-                    <li className="sc-item " title="instagram">
-                      <a
-                        className="sc-link"
-                        href="#0"
-                        title="social media icon"
-                      >
-                        <i className="fab fa-instagram sc-icon" />
-                      </a>
-                    </li>
-                    <li className="sc-item " title="X">
-                      <a
-                        className="sc-link"
-                        href="#0"
-                        title="social media icon"
-                      >
-                        <i className="fab fa-x-twitter sc-icon" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+          {blog.tags && (
+                  <div className="tags panel">
+                    <ul className="sidebar-list tags-list">
+                      <li className="tags-icon-label">
+                        <i className="fas fa-tags icon" />
+                      </li>
+                      {JSON.parse(blog.tags.replace(/'/g, '"')).map((tag, index) => (
+                        <li className="tag-item" key={index}>
+                          <a className="tag-link" href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}>
+                            {tag}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+          
           {/*other-posts panel*/}
-          <div className="other-posts panel">
+          {/*<div className="other-posts panel">
             <h6 className="panel-title">posts by the author</h6>
             <div className="row">
               <div className="col-12 col-sm-6 mb-3">
@@ -283,7 +202,7 @@ export default async function Page({params}) {
                 </div>
               </div>
             </div>
-          </div>
+          </div>*/}
           
         </div>
       </div>
