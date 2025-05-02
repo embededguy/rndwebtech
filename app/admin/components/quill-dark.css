@@ -1,6 +1,10 @@
 /* Dark theme for Quill editor */
-.ql-snow.ql-toolbar:first-child {
+.ql-snow.ql-toolbar {
   display: none;
+}
+
+.ql-snow.ql-toolbar:first-child {
+  display: inherit;
 }
 
 .ql-snow.ql-toolbar {
